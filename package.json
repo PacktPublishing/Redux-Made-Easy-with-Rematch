@@ -1,0 +1,12 @@
+{
+  "name": "redux-made-easy-with-rematch",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Redux Made Easy with Rematch book monorepo",
+  "repository": "https://github.com/PacktPublishing/Redux-Made-Easy-with-Rematch.git",
+  "author": "Sergio Moreno <sergiomorenoalbert@gmail.com>",
+  "license": "MIT",
+  "workspaces": [
+    "packages/**"
+  ]
+}

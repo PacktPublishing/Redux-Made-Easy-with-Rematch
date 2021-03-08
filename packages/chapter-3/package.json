@@ -1,0 +1,9 @@
+{
+  "name": "chapter-3",
+  "version": "1.0.0",
+  "description": "Chapter 3 code - Vanilla JS with Redux",
+  "main": "index.js",
+  "author": "Sergio Moreno <sergiomorenoalbert@gmail.com>",
+  "license": "MIT",
+  "private": false
+}
