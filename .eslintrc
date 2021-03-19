@@ -5,9 +5,11 @@
 	],
 	"env": {
 		"browser": true,
-		"es2021": true
+		"es2021": true,
+		"jest": true
 	},
 	"extends": [
+		"airbnb",
 		"eslint:recommended",
 		"plugin:react/recommended",
 		"plugin:react-hooks/recommended",
@@ -21,13 +23,11 @@
 		"sourceType": "module"
 	},
 	"plugins": [
+		"prettier",
 		"react"
 	],
 	"rules": {
-		"indent": [
-			"error",
-			"tab"
-		],
+		"prettier/prettier": "error",
 		"linebreak-style": [
 			"error",
 			"unix"
