@@ -13,6 +13,11 @@
 		"plugin:react-hooks/recommended",
 		"prettier"
 	],
+	"settings": {
+		"react": {
+			"version": "detect"
+		}
+	},
 	"parserOptions": {
 		"ecmaFeatures": {
 			"jsx": true

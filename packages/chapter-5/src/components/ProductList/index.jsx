@@ -1,7 +1,2 @@
-import { List } from "./List";
-import { Product } from "./Product";
-
-export {
-	List,
-	Product,
-};
+export { List } from "./List";
+export { Product } from "./Product";
