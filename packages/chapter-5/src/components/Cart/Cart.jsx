@@ -23,7 +23,7 @@ export const Cart = () => {
       <header className="p-3 flex justify-between items-center">
         <div>
           <h3 className="font-medium text-lg">Your total cart:</h3>
-          {number(totalPrice)}
+          <span aria-label="total cart">{number(totalPrice)}</span>
         </div>
         <button
           onClick={() => dispatch.cart.RESTORE_CART()}
@@ -33,7 +33,7 @@ export const Cart = () => {
           Clear
         </button>
       </header>
-      <div className="divide-y divide-gray-100">
+      <div role="list" className="divide-y divide-gray-100">
         {cartProducts.length ? (
           cartProducts.map((product) => (
             <CartProduct

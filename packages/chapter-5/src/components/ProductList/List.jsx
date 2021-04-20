@@ -26,7 +26,10 @@ export const List = () => {
 
   return (
     <div className="bg-gray-100 p-3 pt-20">
-      <div className="grid grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 3xl:grid-cols-5 gap-8 2xl:gap-5 3xl:gap-5">
+      <div
+        role="list"
+        className="grid grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 3xl:grid-cols-5 gap-8 2xl:gap-5 3xl:gap-5"
+      >
         {products.map((product) => (
           <Product key={product.id} product={product} />
         ))}

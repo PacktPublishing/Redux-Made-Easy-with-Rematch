@@ -4,7 +4,7 @@ const api = new ApiClient();
 
 export const filterByName = (rootState, query) =>
   rootState.shop.products.filter((product) =>
-    product.productName.toLowerCase().includes(query)
+    product.productName.toLowerCase().includes(query.toLowerCase())
   );
 
 export const shop = {
