@@ -5,8 +5,7 @@
 	],
 	"env": {
 		"browser": true,
-		"es2021": true,
-		"jest": true
+		"es2021": true
 	},
 	"extends": [
 		"airbnb",
@@ -29,8 +28,7 @@
 	},
 	"plugins": [
 		"prettier",
-		"react",
-		"jest"
+		"react"
 	],
 	"rules": {
 		"prettier/prettier": "error",
