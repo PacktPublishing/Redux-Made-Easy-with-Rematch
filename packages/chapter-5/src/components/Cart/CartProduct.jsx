@@ -3,7 +3,7 @@ import { dispatch } from "../../store";
 import { number } from "../../utils/formatters";
 
 export const CartProduct = ({ product, quantity }) => (
-  <article className="p-4 flex space-x-4">
+  <article role="listitem" className="p-4 flex space-x-4">
     <img
       src={product.image_url}
       alt="Product"
@@ -20,10 +20,10 @@ export const CartProduct = ({ product, quantity }) => (
     </div>
     <div className="flex items-center">
       <button
+        aria-label="remove"
         onClick={() => dispatch.cart.REMOVE_FROM_CART(product)}
         className="w-5 h-5 rounded-md text-gray-400 border border-gray-300 mr-2"
         type="button"
-        aria-label="remove"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -39,14 +39,17 @@ export const CartProduct = ({ product, quantity }) => (
           />
         </svg>
       </button>
-      <div className="w-auto p-2 h-7 text-sm flex items-center justify-center rounded-md text-gray-500 border border-gray-300 mr-2">
+      <div
+        aria-label="product quantity"
+        className="w-auto p-2 h-7 text-sm flex items-center justify-center rounded-md text-gray-500 border border-gray-300 mr-2"
+      >
         {quantity}
       </div>
       <button
+        aria-label="purchase more"
         onClick={() => dispatch.cart.ADD_TO_CART(product)}
         className="w-5 h-5 rounded-md text-gray-400 border border-gray-300 mr-2"
         type="button"
-        aria-label="purchase more"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"

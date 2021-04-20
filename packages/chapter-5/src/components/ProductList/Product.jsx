@@ -6,11 +6,14 @@ import { number } from "../../utils/formatters";
 export const Product = ({ product }) => {
   const hasStock = product.stock > 0;
   return (
-    <div className="w-auto border rounded-md shadow-sm bg-white flex flex-col">
+    <div
+      role="listitem"
+      className="w-auto border rounded-md shadow-sm bg-white flex flex-col"
+    >
       <img
         loading="lazy"
-        alt="Product"
         src={product.image_url}
+        alt="Product"
         className="w-full rounded-t"
       />
       <div className="flex-grow p-6">

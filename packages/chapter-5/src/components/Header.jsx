@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { store } from "../store";
 
 export const Header = () => {
-  const [value, setValue] = useState();
+  const [value, setValue] = useState("");
 
   return (
     <div className="grid grid-cols-0/5 grid-rows-1 bg-gray-900 p-3 gap-3 items-center fixed w-full z-10">

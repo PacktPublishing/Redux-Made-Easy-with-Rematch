@@ -12,7 +12,7 @@ class ApiClient {
   }
 
   async patch(url, body, params) {
-    return this.httpInstance.get(url, body, { params });
+    return this.httpInstance.patch(url, body, { params });
   }
 }
 
