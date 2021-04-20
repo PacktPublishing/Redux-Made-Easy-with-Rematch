@@ -1,7 +1,7 @@
 {
-  "name": "chapter-5",
+  "name": "chapter-6",
   "version": "1.0.0",
-  "description": "Chapter 5 code, written with React, Rematch, React Redux.",
+  "description": "Chapter 6 code, written with React, Rematch, React Redux + Jest and Testing library",
   "author": "Sergio Moreno",
   "license": "MIT",
   "private": true,
