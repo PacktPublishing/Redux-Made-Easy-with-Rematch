@@ -12,8 +12,8 @@ export const Product = ({ product }) => {
     >
       <img
         loading="lazy"
-        src={product.image_url}
         alt="Product"
+        src={product.image_url}
         className="w-full rounded-t"
       />
       <div className="flex-grow p-6">

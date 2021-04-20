@@ -1,4 +1,2 @@
-import { shop } from "./shop";
-import { cart } from "./cart";
-
-export { shop, cart };
+export { shop } from "./shop";
+export { cart } from "./cart";
