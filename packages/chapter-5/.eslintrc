@@ -31,6 +31,11 @@
 		"react"
 	],
 	"rules": {
+		"import/no-extraneous-dependencies": [
+			"error", {
+				 "devDependencies": true
+			}
+		],
 		"prettier/prettier": "error",
 		"import/prefer-default-export": "off",
 		"react/prop-types": "off",
