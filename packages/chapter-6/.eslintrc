@@ -30,7 +30,9 @@
 	"plugins": [
 		"prettier",
 		"react",
-		"jest"
+		"jest",
+		"testing-library",
+		"jest-dom"
 	],
 	"rules": {
 		"import/no-extraneous-dependencies": [

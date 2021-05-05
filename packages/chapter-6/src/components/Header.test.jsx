@@ -1,5 +1,5 @@
 import React from "react";
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
 import { store } from "../store";
@@ -7,24 +7,24 @@ import { Header } from "./Header";
 
 describe("Header", () => {
   it("should be rendered correctly", () => {
-    const { getByText, getByRole } = render(<Header />);
-    expect(getByText("Ama")).toBeInTheDocument();
-    expect(getByText("zhop")).toBeInTheDocument();
-    expect(getByRole("textbox")).toBeInTheDocument();
-    expect(getByRole("button")).toBeInTheDocument();
+    render(<Header />);
+    expect(screen.getByText("Ama")).toBeInTheDocument();
+    expect(screen.getByText("zhop")).toBeInTheDocument();
+    expect(screen.getByRole("textbox")).toBeInTheDocument();
+    expect(screen.getByRole("button")).toBeInTheDocument();
   });
 
   it("should change the input text value", () => {
-    const { getByRole } = render(<Header />);
-    const input = getByRole("textbox");
+    render(<Header />);
+    const input = screen.getByRole("textbox");
     userEvent.type(input, "Some search value");
     expect(input.value).toEqual("Some search value");
   });
 
   it("should reset the input text value", () => {
-    const { getByRole } = render(<Header />);
-    const buttonReset = getByRole("button");
-    const input = getByRole("textbox");
+    render(<Header />);
+    const buttonReset = screen.getByRole("button");
+    const input = screen.getByRole("textbox");
     userEvent.type(input, "Some search value");
     expect(input.value).toEqual("Some search value");
     userEvent.click(buttonReset);
@@ -33,8 +33,8 @@ describe("Header", () => {
   });
 
   it("should dispatch an action to the store when pressing Enter", () => {
-    const { getByRole } = render(<Header />);
-    const input = getByRole("textbox");
+    render(<Header />);
+    const input = screen.getByRole("textbox");
     userEvent.type(input, "Some search value");
     expect(input.value).toEqual("Some search value");
     userEvent.keyboard("[Enter]");

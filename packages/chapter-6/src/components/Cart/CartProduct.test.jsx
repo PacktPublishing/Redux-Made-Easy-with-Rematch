@@ -1,5 +1,5 @@
 import React from "react";
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { CartProduct } from ".";
 
 const productJson = {
@@ -16,25 +16,23 @@ const productJson = {
 
 describe("CartProduct", () => {
   it("should render the cart product correctly", () => {
-    const { getByText, getByRole, getByLabelText, container } = render(
+    const { container } = render(
       <CartProduct product={productJson} quantity={1} />
     );
 
-    expect(getByText(productJson.productName)).toBeInTheDocument();
-    expect(getByRole("img")).toBeInTheDocument();
-    expect(getByText("$1.00")).toBeInTheDocument();
-    expect(getByLabelText("remove")).toBeInTheDocument();
-    expect(getByLabelText("purchase more")).toBeInTheDocument();
-    expect(getByLabelText("product quantity")).toBeInTheDocument();
-    expect(getByLabelText("product quantity")).toContainHTML("1");
-    expect(getByLabelText("purchase more")).toBeInTheDocument();
+    expect(screen.getByText(productJson.productName)).toBeInTheDocument();
+    expect(screen.getByRole("img")).toBeInTheDocument();
+    expect(screen.getByText("$1.00")).toBeInTheDocument();
+    expect(screen.getByLabelText("remove")).toBeInTheDocument();
+    expect(screen.getByLabelText("purchase more")).toBeInTheDocument();
+    expect(screen.getByLabelText("product quantity")).toBeInTheDocument();
+    expect(screen.getByLabelText("product quantity")).toContainHTML("1");
+    expect(screen.getByLabelText("purchase more")).toBeInTheDocument();
     expect(container).toMatchSnapshot();
   });
 
   it("should render the quantity correctly", () => {
-    const { getByLabelText } = render(
-      <CartProduct product={productJson} quantity={1423} />
-    );
-    expect(getByLabelText("product quantity")).toContainHTML("1423");
+    render(<CartProduct product={productJson} quantity={1423} />);
+    expect(screen.getByLabelText("product quantity")).toContainHTML("1423");
   });
 });
