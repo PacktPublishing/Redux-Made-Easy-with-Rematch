@@ -6,6 +6,9 @@
   "repository": "https://github.com/PacktPublishing/Redux-Made-Easy-with-Rematch.git",
   "author": "Sergio Moreno <sergiomorenoalbert@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "start": "./start.sh"
+  },
   "workspaces": [
     "packages/**"
   ]
