@@ -2,20 +2,14 @@ import { store } from "../index";
 
 const getCart = () => store.getState().cart;
 
-describe("Cart", () => {
-  afterEach(() => store.dispatch({ type: "RESET" }));
+describe("Cart model", () => {
+  beforeEach(() => store.dispatch({ type: "RESET" }));
+
   it("should return the initial state correctly", () => {
-    expect(getCart()).toEqual({
-      addedIds: [],
-      quantityById: {},
-    });
+    expect(getCart()).toEqual({ addedIds: [], quantityById: {} });
   });
 
   it("should ADD_TO_CART", () => {
-    expect(getCart()).toEqual({
-      addedIds: [],
-      quantityById: {},
-    });
     store.dispatch.cart.ADD_TO_CART({ id: "ID" });
     expect(getCart()).toEqual({
       addedIds: ["ID"],

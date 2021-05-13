@@ -45,12 +45,7 @@ export const Product = ({ product }) => {
           </button>
         </div>
         <button
-          onClick={() =>
-            dispatch.shop.setToFavorite({
-              id: product.id,
-              favorite: !product.favorite,
-            })
-          }
+          onClick={() => dispatch.shop.setToFavorite({ id: product.id })}
           type="button"
           aria-label="like"
           className={clsx(

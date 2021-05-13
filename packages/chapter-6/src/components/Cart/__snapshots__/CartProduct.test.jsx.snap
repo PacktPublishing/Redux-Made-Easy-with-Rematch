@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CartProduct should render the cart product correctly 1`] = `
+exports[`CartProduct should render the quantity correctly 1`] = `
 <div>
   <article
     class="p-4 flex space-x-4"
@@ -52,7 +52,7 @@ exports[`CartProduct should render the cart product correctly 1`] = `
         aria-label="product quantity"
         class="w-auto p-2 h-7 text-sm flex items-center justify-center rounded-md text-gray-500 border border-gray-300 mr-2"
       >
-        1
+        1423
       </div>
       <button
         aria-label="purchase more"

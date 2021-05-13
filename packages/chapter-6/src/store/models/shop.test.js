@@ -3,8 +3,8 @@ import { filterByName } from "./shop";
 
 const getShop = () => store.getState().shop;
 
-describe("Shop", () => {
-  afterEach(() => store.dispatch({ type: "RESET" }));
+describe("Shop model", () => {
+  beforeEach(() => store.dispatch({ type: "RESET" }));
 
   it("should return the initial state", () => {
     expect(getShop()).toEqual({
@@ -27,7 +27,6 @@ describe("Shop", () => {
     expect(productToFind.favorite).toEqual(true);
     await store.dispatch.shop.setToFavorite({
       id: productToFind.id,
-      favorite: false,
     });
     expect(getShop().products[0].favorite).toEqual(false);
   });
