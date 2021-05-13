@@ -1,16 +1,16 @@
-import { store } from "../index";
+import { store, dispatch } from "../index";
 
 const getCart = () => store.getState().cart;
 
 describe("Cart model", () => {
-  beforeEach(() => store.dispatch({ type: "RESET" }));
+  beforeEach(() => dispatch({ type: "RESET" }));
 
   it("should return the initial state correctly", () => {
     expect(getCart()).toEqual({ addedIds: [], quantityById: {} });
   });
 
   it("should ADD_TO_CART", () => {
-    store.dispatch.cart.ADD_TO_CART({ id: "ID" });
+    dispatch.cart.ADD_TO_CART({ id: "ID" });
     expect(getCart()).toEqual({
       addedIds: ["ID"],
       quantityById: {
@@ -20,8 +20,8 @@ describe("Cart model", () => {
   });
 
   it("should increase an already added item to the cart", () => {
-    store.dispatch.cart.ADD_TO_CART({ id: "ID" });
-    store.dispatch.cart.ADD_TO_CART({ id: "ID" });
+    dispatch.cart.ADD_TO_CART({ id: "ID" });
+    dispatch.cart.ADD_TO_CART({ id: "ID" });
     expect(getCart()).toEqual({
       addedIds: ["ID"],
       quantityById: {
@@ -31,15 +31,15 @@ describe("Cart model", () => {
   });
 
   it("should decrease an already added item to the cart", () => {
-    store.dispatch.cart.ADD_TO_CART({ id: "ID" });
-    store.dispatch.cart.ADD_TO_CART({ id: "ID" });
+    dispatch.cart.ADD_TO_CART({ id: "ID" });
+    dispatch.cart.ADD_TO_CART({ id: "ID" });
     expect(getCart()).toEqual({
       addedIds: ["ID"],
       quantityById: {
         ID: 2,
       },
     });
-    store.dispatch.cart.REMOVE_FROM_CART({ id: "ID" });
+    dispatch.cart.REMOVE_FROM_CART({ id: "ID" });
     expect(getCart()).toEqual({
       addedIds: ["ID"],
       quantityById: {
@@ -49,22 +49,22 @@ describe("Cart model", () => {
   });
 
   it("should remove completely a product from the cart", () => {
-    store.dispatch.cart.ADD_TO_CART({ id: "ID" });
-    store.dispatch.cart.ADD_TO_CART({ id: "ID" });
+    dispatch.cart.ADD_TO_CART({ id: "ID" });
+    dispatch.cart.ADD_TO_CART({ id: "ID" });
     expect(getCart()).toEqual({
       addedIds: ["ID"],
       quantityById: {
         ID: 2,
       },
     });
-    store.dispatch.cart.REMOVE_FROM_CART({ id: "ID" });
+    dispatch.cart.REMOVE_FROM_CART({ id: "ID" });
     expect(getCart()).toEqual({
       addedIds: ["ID"],
       quantityById: {
         ID: 1,
       },
     });
-    store.dispatch.cart.REMOVE_FROM_CART({ id: "ID" });
+    dispatch.cart.REMOVE_FROM_CART({ id: "ID" });
     expect(getCart()).toEqual({
       addedIds: [],
       quantityById: {},
@@ -72,14 +72,14 @@ describe("Cart model", () => {
   });
 
   it("should reset the cart state to his INITIAL_STATE", () => {
-    store.dispatch.cart.ADD_TO_CART({ id: "ID" });
+    dispatch.cart.ADD_TO_CART({ id: "ID" });
     expect(getCart()).toEqual({
       addedIds: ["ID"],
       quantityById: {
         ID: 1,
       },
     });
-    store.dispatch.cart.RESTORE_CART();
+    dispatch.cart.RESTORE_CART();
     expect(getCart()).toEqual({
       addedIds: [],
       quantityById: {},

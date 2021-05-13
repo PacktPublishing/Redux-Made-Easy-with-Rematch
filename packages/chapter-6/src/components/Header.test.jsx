@@ -2,12 +2,12 @@ import React from "react";
 import { screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
-import { store } from "../store";
+import { store, dispatch } from "../store";
 import { Header } from "./Header";
 import { renderWithRematchStore } from "../../test/utils";
 
 describe("Header", () => {
-  beforeEach(() => store.dispatch({ type: "RESET" }));
+  beforeEach(() => dispatch({ type: "RESET" }));
   it("should be rendered correctly", () => {
     renderWithRematchStore(<Header />, store);
     expect(screen.queryByText("Ama")).toBeInTheDocument();

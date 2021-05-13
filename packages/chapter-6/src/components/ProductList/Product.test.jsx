@@ -3,7 +3,7 @@ import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { renderWithRematchStore } from "../../../test/utils";
 import { Product } from ".";
-import { store } from "../../store";
+import { store, dispatch } from "../../store";
 
 const productJson = {
   id: "b590e450-1e0c-4344-92b8-e1f6cc260587",
@@ -51,7 +51,7 @@ describe("Product", () => {
   });
 
   describe("with Rematch store", () => {
-    beforeEach(() => store.dispatch({ type: "RESET" }));
+    beforeEach(() => dispatch({ type: "RESET" }));
     it("should dispatch add to cart when has stock", () => {
       renderWithRematchStore(
         <Product product={{ ...productJson, stock: 1 }} />,

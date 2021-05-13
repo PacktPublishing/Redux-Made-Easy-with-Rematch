@@ -1,10 +1,10 @@
-import { store } from "../index";
+import { store, dispatch } from "../index";
 import { filterByName } from "./shop";
 
 const getShop = () => store.getState().shop;
 
 describe("Shop model", () => {
-  beforeEach(() => store.dispatch({ type: "RESET" }));
+  beforeEach(() => dispatch({ type: "RESET" }));
 
   it("should return the initial state", () => {
     expect(getShop()).toEqual({
@@ -16,23 +16,23 @@ describe("Shop model", () => {
   });
 
   it("should run getProducts effect and recover 10 products", async () => {
-    await store.dispatch.shop.getProducts();
+    await dispatch.shop.getProducts();
     expect(getShop().products.length).toEqual(10);
     expect(getShop().totalCount).toEqual(1000);
   });
 
   it("should run setFavorite effect and modify the favorite property", async () => {
-    await store.dispatch.shop.getProducts();
+    await dispatch.shop.getProducts();
     const productToFind = getShop().products[0];
     expect(productToFind.favorite).toEqual(true);
-    await store.dispatch.shop.setToFavorite({
+    await dispatch.shop.setToFavorite({
       id: productToFind.id,
     });
     expect(getShop().products[0].favorite).toEqual(false);
   });
 
   it("filterByName util works correctly", async () => {
-    await store.dispatch.shop.getProducts();
+    await dispatch.shop.getProducts();
     const result = filterByName(store.getState(), "Unbranded");
     expect(result).toMatchInlineSnapshot(`
       Array [

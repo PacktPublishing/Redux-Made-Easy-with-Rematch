@@ -3,10 +3,10 @@ import { screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { renderWithRematchStore } from "../../../test/utils";
 import { Cart } from ".";
-import { store } from "../../store";
+import { store, dispatch } from "../../store";
 
 describe("Cart", () => {
-  beforeEach(() => store.dispatch({ type: "RESET" }));
+  beforeEach(() => dispatch({ type: "RESET" }));
   it("should render the cart component", () => {
     renderWithRematchStore(<Cart />, store);
     expect(screen.queryByText("Clear")).toBeInTheDocument();
@@ -15,9 +15,9 @@ describe("Cart", () => {
   });
 
   it("should render a product on the cart and adjust the total price", async () => {
-    await store.dispatch.shop.getProducts();
+    await dispatch.shop.getProducts();
     const [oneProduct] = store.getState().shop.products;
-    store.dispatch.cart.ADD_TO_CART(oneProduct);
+    dispatch.cart.ADD_TO_CART(oneProduct);
     renderWithRematchStore(<Cart />, store);
     expect(await screen.findByRole("list")).toBeInTheDocument();
     expect(screen.queryByRole("listitem")).toBeInTheDocument();
@@ -25,10 +25,10 @@ describe("Cart", () => {
   });
 
   it("should render two products on the cart and adjust the total price", async () => {
-    await store.dispatch.shop.getProducts();
+    await dispatch.shop.getProducts();
     const [oneProduct, otherProduct] = store.getState().shop.products;
-    store.dispatch.cart.ADD_TO_CART(oneProduct);
-    store.dispatch.cart.ADD_TO_CART(otherProduct);
+    dispatch.cart.ADD_TO_CART(oneProduct);
+    dispatch.cart.ADD_TO_CART(otherProduct);
     renderWithRematchStore(<Cart />, store);
     expect(await screen.findByRole("list")).toBeInTheDocument();
     expect(screen.getAllByRole("listitem")).toHaveLength(2);
@@ -38,9 +38,9 @@ describe("Cart", () => {
   });
 
   it("should reset the cart to his initial state", async () => {
-    await store.dispatch.shop.getProducts();
+    await dispatch.shop.getProducts();
     const [otherProduct] = store.getState().shop.products;
-    store.dispatch.cart.ADD_TO_CART(otherProduct);
+    dispatch.cart.ADD_TO_CART(otherProduct);
     renderWithRematchStore(<Cart />, store);
     expect(await screen.findByRole("list")).toBeInTheDocument();
     expect(screen.queryByRole("listitem")).toBeInTheDocument();
@@ -50,9 +50,9 @@ describe("Cart", () => {
   });
 
   it("should increase the quantity of the product on the cart", async () => {
-    await store.dispatch.shop.getProducts();
+    await dispatch.shop.getProducts();
     const [otherProduct] = store.getState().shop.products;
-    store.dispatch.cart.ADD_TO_CART(otherProduct);
+    dispatch.cart.ADD_TO_CART(otherProduct);
     renderWithRematchStore(<Cart />, store);
     expect(screen.queryByLabelText("total cart")).toContainHTML("$43.00");
     expect(screen.queryByRole("listitem")).toBeInTheDocument();
@@ -61,10 +61,10 @@ describe("Cart", () => {
   });
 
   it("should decrease the quantity of the product on the cart", async () => {
-    await store.dispatch.shop.getProducts();
+    await dispatch.shop.getProducts();
     const [otherProduct] = store.getState().shop.products;
-    store.dispatch.cart.ADD_TO_CART(otherProduct);
-    store.dispatch.cart.ADD_TO_CART(otherProduct);
+    dispatch.cart.ADD_TO_CART(otherProduct);
+    dispatch.cart.ADD_TO_CART(otherProduct);
     renderWithRematchStore(<Cart />, store);
     expect(screen.queryByLabelText("total cart")).toContainHTML("$86.00");
     expect(screen.queryByRole("listitem")).toBeInTheDocument();
@@ -73,9 +73,9 @@ describe("Cart", () => {
   });
 
   it("should remove completely the product from the cart", async () => {
-    await store.dispatch.shop.getProducts();
+    await dispatch.shop.getProducts();
     const [otherProduct] = store.getState().shop.products;
-    store.dispatch.cart.ADD_TO_CART(otherProduct);
+    dispatch.cart.ADD_TO_CART(otherProduct);
     renderWithRematchStore(<Cart />, store);
     expect(screen.queryByLabelText("total cart")).toContainHTML("$43.00");
     expect(screen.queryByRole("listitem")).toBeInTheDocument();
