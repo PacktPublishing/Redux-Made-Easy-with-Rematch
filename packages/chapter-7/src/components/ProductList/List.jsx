@@ -4,9 +4,13 @@ import useInfiniteScroll from "react-infinite-scroll-hook";
 
 import { dispatch } from "../../store";
 import { Product } from "./Product";
+import { Spinner } from "../Spinner";
 import { filterByName } from "../../store/models/shop";
 
 export const List = () => {
+  const isLoading = useSelector(
+    (rootState) => rootState.loading.effects.shop.getProducts
+  );
   const query = useSelector((rootState) => rootState.shop.query);
   const products = useSelector((rootState) =>
     query ? filterByName(rootState, query) : rootState.shop.products
@@ -15,7 +19,7 @@ export const List = () => {
 
   const hasNextPage = products.length < totalCount;
   const [infiniteRef] = useInfiniteScroll({
-    loading: false,
+    loading: isLoading,
     hasNextPage,
     onLoadMore: () => dispatch.shop.getProducts(),
   });
@@ -33,8 +37,12 @@ export const List = () => {
         {products.map((product) => (
           <Product key={product.id} product={product} />
         ))}
-        {hasNextPage && !query && <div ref={infiniteRef}>Loading…</div>}
       </div>
+      {(isLoading || (hasNextPage && !query)) && (
+        <div className="mt-5" ref={infiniteRef}>
+          <Spinner />
+        </div>
+      )}
     </div>
   );
 };

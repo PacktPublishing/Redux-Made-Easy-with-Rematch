@@ -599,6 +599,11 @@
   resolved "https://registry.yarnpkg.com/@rematch/core/-/core-2.0.1.tgz#c69bba9637f41c403c8725834673b12a58a28f31"
   integrity sha512-EyvgmXzXZnDCIIsmBmOtwzaTQzH+rAlrjcPTiV8Hd/TbFeH5VpCXI/B4myB5aH4P+yQafRkm846HNHMmhkq7kQ==
 
+"@rematch/loading@^2.0.1":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@rematch/loading/-/loading-2.0.1.tgz#0e14ccda22097483cdc62cb6f9af2de5d96b5cd2"
+  integrity sha512-UybllPKoEAuSnbfbz8ntXX1VOtUH5BUaRYINfGNHFkhLnjHRS1C2Zz+9W2yvmmY6M5WCJkuH4fIFurDms3rHIQ==
+
 "@sindresorhus/is@^0.14.0":
   version "0.14.0"
   resolved "https://registry.yarnpkg.com/@sindresorhus/is/-/is-0.14.0.tgz#9fb3a3cf3132328151f353de4632e01e52102bea"
