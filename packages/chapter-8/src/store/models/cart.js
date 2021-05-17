@@ -40,21 +40,19 @@ export const cart = {
   selectors: (slice, createSelector) => ({
     total() {
       return createSelector(
-        slice,
-        (rootState) => rootState.shop.products,
+        [slice, (rootState) => rootState.shop.products],
         (cartState, products) =>
           cartState.addedIds.reduce(
             (total, id) =>
               total +
-              getProduct(products, id)?.price * getQuantity(cartState, id),
+              getProduct(products, id).price * getQuantity(cartState, id),
             0
           )
       );
     },
     getCartProducts() {
       return createSelector(
-        slice,
-        (rootState) => rootState.shop.products,
+        [slice, (rootState) => rootState.shop.products],
         (cartState, products) =>
           cartState.addedIds.map((id) => getProduct(products, id))
       );
