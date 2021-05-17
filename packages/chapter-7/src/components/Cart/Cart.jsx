@@ -1,22 +1,13 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { CartProduct } from "./CartProduct";
-import { dispatch } from "../../store";
-import { getProduct, getQuantity } from "../../store/models/cart";
+import { dispatch, store } from "../../store";
 import { number } from "../../utils/formatters";
 
 export const Cart = () => {
-  const { addedIds, quantityById } = useSelector((rootState) => rootState.cart);
-  const cartProducts = useSelector((rootState) =>
-    addedIds.map((id) => getProduct(rootState, id))
-  );
-  const totalPrice = useSelector((rootState) =>
-    addedIds.reduce(
-      (total, id) =>
-        total + getProduct(rootState, id).price * getQuantity(rootState, id),
-      0
-    )
-  );
+  const quantityById = useSelector((rootState) => rootState.cart.quantityById);
+  const cartProducts = useSelector(store.select.cart.getCartProducts);
+  const totalPrice = useSelector(store.select.cart.total);
 
   return (
     <div className="bg-white border shadow-sm divide-y sticky top-0 h-screen pt-16 overflow-y-auto">

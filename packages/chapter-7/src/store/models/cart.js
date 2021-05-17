@@ -1,6 +1,6 @@
-export const getProduct = (state, id) =>
-  state.shop.products.find((product) => product.id === id);
-export const getQuantity = (state, id) => state.cart.quantityById[id];
+export const getProduct = (products, id) =>
+  products.find((product) => product.id === id);
+export const getQuantity = (state, id) => state.quantityById[id];
 
 const INITIAL_STATE = {
   addedIds: [],
@@ -50,4 +50,27 @@ export const cart = {
       };
     },
   },
+  selectors: (slice, createSelector) => ({
+    total() {
+      return createSelector(
+        slice,
+        (rootState) => rootState.shop.products,
+        (cartState, products) =>
+          cartState.addedIds.reduce(
+            (total, id) =>
+              total +
+              getProduct(products, id).price * getQuantity(cartState, id),
+            0
+          )
+      );
+    },
+    getCartProducts() {
+      return createSelector(
+        slice,
+        (rootState) => rootState.shop.products,
+        (cartState, products) =>
+          cartState.addedIds.map((id) => getProduct(products, id))
+      );
+    },
+  }),
 };

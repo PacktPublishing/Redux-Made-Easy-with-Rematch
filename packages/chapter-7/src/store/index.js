@@ -1,5 +1,7 @@
 import { init } from "@rematch/core";
 import createLoadingPlugin from "@rematch/loading";
+import createSelectPlugin from "@rematch/select";
+
 import { shop, cart } from "./models";
 
 export const store = init({
@@ -9,7 +11,7 @@ export const store = init({
       RESET: () => undefined,
     },
   },
-  plugins: [createLoadingPlugin()],
+  plugins: [createLoadingPlugin(), createSelectPlugin()],
 });
 
 export const { dispatch } = store;

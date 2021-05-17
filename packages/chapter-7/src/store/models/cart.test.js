@@ -85,4 +85,47 @@ describe("Cart model", () => {
       quantityById: {},
     });
   });
+
+  describe("testing selectors", () => {
+    it("total() selector should return total", () => {
+      expect(
+        store.select.cart.total({
+          shop: {
+            products: [
+              {
+                id: "ID",
+                price: 9.99,
+              },
+            ],
+          },
+          cart: {
+            addedIds: ["ID"],
+            quantityById: {
+              ID: 3,
+            },
+          },
+        })
+      ).toEqual(9.99 * 3);
+    });
+    it("total() selector should return total", () => {
+      expect(
+        store.select.cart.getCartProducts({
+          shop: {
+            products: [
+              {
+                id: "ID",
+                price: 9.99,
+              },
+            ],
+          },
+          cart: {
+            addedIds: ["ID"],
+            quantityById: {
+              ID: 3,
+            },
+          },
+        })
+      ).toEqual([{ id: "ID", price: 9.99 }]);
+    });
+  });
 });
