@@ -599,6 +599,11 @@
   resolved "https://registry.yarnpkg.com/@rematch/core/-/core-2.0.1.tgz#c69bba9637f41c403c8725834673b12a58a28f31"
   integrity sha512-EyvgmXzXZnDCIIsmBmOtwzaTQzH+rAlrjcPTiV8Hd/TbFeH5VpCXI/B4myB5aH4P+yQafRkm846HNHMmhkq7kQ==
 
+"@rematch/immer@^2.0.1":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@rematch/immer/-/immer-2.0.1.tgz#07f9fee143feea36f8172d7093fe53fe1a254d67"
+  integrity sha512-5Lt2YhCoKPpXb//CqoNh/7kaWENKKhkm015iWcW6I+2wFUUDoiUV8Rm+CzfTxEj+5/V4Uf/eJFPR0nmxaLnbHw==
+
 "@rematch/loading@^2.0.1":
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/@rematch/loading/-/loading-2.0.1.tgz#0e14ccda22097483cdc62cb6f9af2de5d96b5cd2"
@@ -3191,6 +3196,11 @@ ignore@^5.1.4:
   version "5.1.8"
   resolved "https://registry.yarnpkg.com/ignore/-/ignore-5.1.8.tgz#f150a8b50a34289b33e22f5889abd4d8016f0e57"
   integrity sha512-BMpfD7PpiETpBl/A6S498BaIJ6Y/ABT93ETbby2fP00v4EbvPBXWEoaR1UBPKs3iR53pJY7EtZk5KACI57i1Uw==
+
+immer@^9.0.2:
+  version "9.0.2"
+  resolved "https://registry.yarnpkg.com/immer/-/immer-9.0.2.tgz#83e4593df9914acaecfd9fac6a8601ef44d883fc"
+  integrity sha512-mkcmzLtIfSp40vAqteRr1MbWNSoI7JE+/PB36FNPoSfJ9RQRmNKuTYCjKkyXyuq3Dgn07HuJBrwJd4ZSk2yUbw==
 
 import-fresh@^3.0.0, import-fresh@^3.2.1:
   version "3.3.0"

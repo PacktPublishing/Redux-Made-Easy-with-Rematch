@@ -16,25 +16,18 @@ export const shop = {
   },
   reducers: {
     SET_PRODUCTS(state, { products, totalCount }) {
-      return {
-        products: [...state.products, ...products],
-        currentPage: state.currentPage + 1,
-        totalCount,
-      };
+      state.products.push(...products);
+      state.currentPage += 1;
+      state.totalCount = totalCount;
+      return state;
     },
     SET_QUERY(state, query) {
-      return {
-        ...state,
-        query,
-      };
+      state.query = query;
+      return state;
     },
     SET_FAVORITE(state, { indexToModify, product }) {
-      const products = [...state.products];
-      products[indexToModify] = product;
-      return {
-        ...state,
-        products,
-      };
+      state.products[indexToModify] = product;
+      return state;
     },
   },
   effects: () => ({

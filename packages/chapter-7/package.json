@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "@rematch/core": "^2.0.1",
+    "@rematch/immer": "^2.0.1",
     "@rematch/loading": "^2.0.1",
     "@rematch/select": "^3.0.1",
     "clsx": "^1.1.1",
