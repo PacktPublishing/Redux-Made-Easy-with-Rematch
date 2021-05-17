@@ -46,7 +46,7 @@ export const cart = {
           cartState.addedIds.reduce(
             (total, id) =>
               total +
-              getProduct(products, id).price * getQuantity(cartState, id),
+              getProduct(products, id)?.price * getQuantity(cartState, id),
             0
           )
       );

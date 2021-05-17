@@ -26,13 +26,16 @@ export const Cart = () => {
       </header>
       <div role="list" className="divide-y divide-gray-100">
         {cartProducts.length ? (
-          cartProducts.map((product) => (
-            <CartProduct
-              key={product.id}
-              product={product}
-              quantity={quantityById[product.id]}
-            />
-          ))
+          cartProducts.map(
+            (product) =>
+              product && (
+                <CartProduct
+                  key={product.id}
+                  product={product}
+                  quantity={quantityById[product.id]}
+                />
+              )
+          )
         ) : (
           <div className="text-center">
             <h5 className="font-medium text-lg pt-6">Empty cart</h5>

@@ -609,6 +609,13 @@
   resolved "https://registry.yarnpkg.com/@rematch/loading/-/loading-2.0.1.tgz#0e14ccda22097483cdc62cb6f9af2de5d96b5cd2"
   integrity sha512-UybllPKoEAuSnbfbz8ntXX1VOtUH5BUaRYINfGNHFkhLnjHRS1C2Zz+9W2yvmmY6M5WCJkuH4fIFurDms3rHIQ==
 
+"@rematch/persist@^2.0.1":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@rematch/persist/-/persist-2.0.1.tgz#94f9cbbe212d769d204b90571c5b261a2fcb77b8"
+  integrity sha512-//OABsRd7k2llxuVoJQ9Ftgj7xnx6CnsGE2ectc7ZTkFc2tr8iQ0FEXNxPMuB/oXX2NqueV+0IQojDv5OFOM1Q==
+  dependencies:
+    redux-persist "^6.0.0"
+
 "@rematch/select@^3.0.1":
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/@rematch/select/-/select-3.0.1.tgz#2ca30b5c7e60467a91409c9c1f4ee2a4034a99ca"
@@ -5405,6 +5412,11 @@ reduce-css-calc@^2.1.8:
   dependencies:
     css-unit-converter "^1.1.1"
     postcss-value-parser "^3.3.0"
+
+redux-persist@^6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/redux-persist/-/redux-persist-6.0.0.tgz#b4d2972f9859597c130d40d4b146fecdab51b3a8"
+  integrity sha512-71LLMbUq2r02ng2We9S215LtPu3fY0KgaGE0k8WRgl6RkqxtGfl7HUozz1Dftwsb0D/5mZ8dwAaPbtnzfvbEwQ==
 
 redux@^4.0.0, redux@^4.0.5:
   version "4.1.0"
