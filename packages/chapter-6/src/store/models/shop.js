@@ -28,9 +28,14 @@ export const shop = {
         query,
       };
     },
-    SET_FAVORITE(state, { indexToModify, product }) {
+    SET_FAVORITE(state, { id, favorite }) {
       const products = [...state.products];
-      products[indexToModify] = product;
+      const modifiedProduct = products.findIndex(
+        (product) => product.id === id
+      );
+      if (modifiedProduct !== -1) {
+        products[modifiedProduct].favorite = favorite;
+      }
       return {
         ...state,
         products,
@@ -47,16 +52,9 @@ export const shop = {
       const totalCount = parseInt(headers.get("x-total-count"), 10);
       this.SET_PRODUCTS({ products: data, totalCount });
     },
-    async setToFavorite({ id }, rootState) {
-      const productIndex = rootState.shop.products.findIndex(
-        (el) => el.id === id
-      );
-      if (productIndex === -1) return;
-      const product = rootState.shop.products[productIndex];
-      const { data } = await api.patch(`/products/${id}`, {
-        favorite: !product.favorite,
-      });
-      this.SET_FAVORITE({ indexToModify: productIndex, product: data });
+    async setToFavorite({ id, favorite }) {
+      const { data } = await api.patch(`/products/${id}`, { favorite });
+      this.SET_FAVORITE({ id: data.id, favorite: data.favorite });
     },
   }),
 };

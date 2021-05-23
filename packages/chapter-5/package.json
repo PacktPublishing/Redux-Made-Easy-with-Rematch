@@ -1,7 +1,7 @@
 {
   "name": "chapter-5",
   "version": "1.0.0",
-  "description": "Chapter 5 code, written with React, Rematch, React Redux.",
+  "description": "Chapter 5 code, written with React and Tailwind",
   "author": "Sergio Moreno",
   "license": "MIT",
   "private": true,
@@ -15,13 +15,8 @@
   "dependencies": {
     "@rematch/core": "^2.0.1",
     "clsx": "^1.1.1",
-    "qss": "^2.0.3",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-infinite-scroll-hook": "^4.0.1",
-    "react-redux": "^7.2.3",
-    "redaxios": "^0.4.1",
-    "redux": "^4.0.5",
     "tailwindcss": "^2.1.1"
   },
   "devDependencies": {

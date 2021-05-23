@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { store } from "../store";
+import { useDispatch } from "react-redux";
 
 export const Header = () => {
+  const dispatch = useDispatch();
   const [value, setValue] = useState("");
 
   return (
@@ -17,7 +18,7 @@ export const Header = () => {
         <span className="absolute inset-y-0 right-0 flex items-center pr-2">
           <button
             onClick={() => {
-              store.dispatch.shop.SET_QUERY(false);
+              dispatch.shop.SET_QUERY(false);
               setValue("");
             }}
             type="button"
@@ -30,9 +31,7 @@ export const Header = () => {
           onChange={(e) => setValue(e.target.value)}
           onKeyPress={(e) => {
             if (e.key === "Enter") {
-              store.dispatch.shop.SET_QUERY(
-                e.target.value !== "" && e.target.value
-              );
+              dispatch.shop.SET_QUERY(e.target.value !== "" && e.target.value);
             }
           }}
           value={value}

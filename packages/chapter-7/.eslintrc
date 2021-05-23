@@ -5,7 +5,8 @@
 	],
 	"env": {
 		"browser": true,
-		"es2021": true
+		"es2021": true,
+		"jest": true
 	},
 	"extends": [
 		"airbnb",
@@ -28,7 +29,10 @@
 	},
 	"plugins": [
 		"prettier",
-		"react"
+		"react",
+		"jest",
+		"testing-library",
+		"jest-dom"
 	],
 	"rules": {
 		"import/no-extraneous-dependencies": [

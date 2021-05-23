@@ -12,8 +12,8 @@ export const Product = ({ product }) => {
     >
       <img
         loading="lazy"
-        alt="Product"
         src={product.image_url}
+        alt="Product"
         className="w-full rounded-t"
       />
       <div className="flex-grow p-6">
@@ -45,12 +45,7 @@ export const Product = ({ product }) => {
           </button>
         </div>
         <button
-          onClick={() =>
-            dispatch.shop.setToFavorite({
-              id: product.id,
-              favorite: !product.favorite,
-            })
-          }
+          onClick={() => dispatch.shop.setToFavorite({ id: product.id })}
           type="button"
           aria-label="like"
           className={clsx(

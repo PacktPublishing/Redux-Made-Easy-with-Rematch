@@ -29,8 +29,9 @@ This book is for React and Redux users looking for better alternatives for Redux
 
 - [Chapter 3: Vanilla JS Redux Application](/packages/chapter-3)
 - [Chapter 4: Vanilla JS Redux + Rematch Application](/packages/chapter-4)
-- [Chapter 5: Amazon like Application with Rematch and React](/packages/chapter-5)
-- [Chapter 6: Amazon like Application with Rematch and React + Testing Library + Jest](/packages/chapter-6)
+- [Chapter 5: Amazon like Application with Rematch and React - PART I](/packages/chapter-5)
+- [Chapter 6: Amazon like Application with Rematch and React - PART II](/packages/chapter-6)
+- [Chapter 7: Amazon like Application with Rematch and React + Testing Library + Jest](/packages/chapter-7)
 
 ## How to run any chapter code?
 

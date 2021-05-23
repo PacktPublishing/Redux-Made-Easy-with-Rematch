@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { store } from "../store";
 
 export const Header = () => {
   const [value, setValue] = useState("");
@@ -17,7 +16,6 @@ export const Header = () => {
         <span className="absolute inset-y-0 right-0 flex items-center pr-2">
           <button
             onClick={() => {
-              store.dispatch.shop.SET_QUERY(false);
               setValue("");
             }}
             type="button"
@@ -28,13 +26,6 @@ export const Header = () => {
         </span>
         <input
           onChange={(e) => setValue(e.target.value)}
-          onKeyPress={(e) => {
-            if (e.key === "Enter") {
-              store.dispatch.shop.SET_QUERY(
-                e.target.value !== "" && e.target.value
-              );
-            }
-          }}
           value={value}
           type="text"
           className="p-2 rounded-md w-full"
