@@ -32,6 +32,7 @@ This book is for React and Redux users looking for better alternatives for Redux
 - [Chapter 5: Amazon like application with React and TailwindCSS - PART I](/packages/chapter-5)
 - [Chapter 6: Amazon like application with Rematch and React - PART II](/packages/chapter-6)
 - [Chapter 7: Amazon like application with Rematch and React + Testing Library + Jest](/packages/chapter-7)
+- [Chapter 8: Amazon like application with Rematch and Rematch Plugins and React + Testing Library + Jest](/packages/chapter-8)
 
 ## How to run any chapter code?
 
