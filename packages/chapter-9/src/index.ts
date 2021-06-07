@@ -26,18 +26,19 @@ function createTypedStatePlugin() {
       typings: {},
     },
     onModel: (model) => {
-      TYPINGS_CACHE[model.name] = model.typings
+      TYPINGS_CACHE[model.name] = model.typings;
     },
-    createMiddleware: () => () => (next) => (action) => {
-      const { type, payload } = action
-      const [modelName] = type.split("/");
+    createMiddleware: () => (store) => (next) => (action) => {
+      const called = next(action);
+      const [modelName] = action.type.split("/");
       const typings = TYPINGS_CACHE[modelName];
 
       if (typings) {
+        const payload = store.getState()[modelName];
         validate(typings, payload, modelName);
       }
 
-      return next(action);
+      return called;
     },
   }
 };

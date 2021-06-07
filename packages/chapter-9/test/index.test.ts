@@ -17,7 +17,7 @@ const BASE_MODEL = {
   },
 };
 
-describe("Rematch Typed-State", () => {
+describe("Rematch Plugin Typed State", () => {
   it("should throw a warning when one type is invalid", () => {
     globalThis.console.warn = jest.fn();
 
@@ -29,12 +29,12 @@ describe("Rematch Typed-State", () => {
       },
     };
 
-    const store = init({
+    const { dispatch } = init({
       models: { user },
       plugins: [createTypedStatePlugin()],
     });
 
-    store.dispatch.user.update({ name: undefined, age: 26 });
+    dispatch.user.update({ name: undefined, age: 26 });
     expect(globalThis.console.warn).toHaveBeenCalledTimes(1);
     expect(globalThis.console.warn).toHaveBeenCalledWith(
       "[Rematch]: The property `name` is marked as required in `user`, but its value is `undefined`."
@@ -51,21 +51,21 @@ describe("Rematch Typed-State", () => {
       },
     };
 
-    const store = init({
+    const { dispatch } = init({
       models: { user },
       plugins: [createTypedStatePlugin()],
     });
 
-    store.dispatch.user.update({ name: undefined, age: "26" });
-    expect(globalThis.console.warn).toHaveBeenCalledTimes(2);
-    expect(globalThis.console.warn).toHaveBeenNthCalledWith(
-      1,
-      "[Rematch]: The property `name` is marked as required in `user`, but its value is `undefined`."
-    );
-    expect(globalThis.console.warn).toHaveBeenNthCalledWith(
-      2,
-      "[Rematch]: Invalid property `age` of type `string` supplied to `user`, expected `number`."
-    );
+      dispatch.user.update({ name: undefined, age: "26" });
+      expect(globalThis.console.warn).toHaveBeenCalledTimes(2);
+      expect(globalThis.console.warn).toHaveBeenNthCalledWith(
+        1,
+        "[Rematch]: The property `name` is marked as required in `user`, but its value is `undefined`."
+      );
+      expect(globalThis.console.warn).toHaveBeenNthCalledWith(
+        2,
+        "[Rematch]: Invalid property `age` of type `string` supplied to `user`, expected `number`."
+      );
   });
 
   it("work with dynamic model", () => {
@@ -79,14 +79,13 @@ describe("Rematch Typed-State", () => {
       },
     };
 
-    const store = init({
+    const { dispatch, addModel } = init({
       models: {},
       plugins: [createTypedStatePlugin()],
     });
 
-    store.addModel(user);
-
-    store.dispatch.user.update({ name: undefined, age: 26 });
+    addModel(user);
+    dispatch.user.update({ name: undefined, age: 26 });
     expect(globalThis.console.warn).toHaveBeenCalledTimes(1);
     expect(globalThis.console.warn).toHaveBeenCalledWith(
       "[Rematch]: The property `name` is marked as required in `user`, but its value is `undefined`."
