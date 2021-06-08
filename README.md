@@ -27,12 +27,20 @@ This book is for React and Redux users looking for better alternatives for Redux
 
 ## Chapter's examples
 
+### Rematch essentials
 - [Chapter 3: Vanilla JS Redux application](/packages/chapter-3)
 - [Chapter 4: Vanilla JS Redux + Rematch application](/packages/chapter-4)
-- [Chapter 5: Amazon like application with React and TailwindCSS - PART I](/packages/chapter-5)
-- [Chapter 6: Amazon like application with Rematch and React - PART II](/packages/chapter-6)
-- [Chapter 7: Amazon like application with Rematch and React + Testing Library + Jest](/packages/chapter-7)
-- [Chapter 8: Amazon like application with Rematch and Rematch Plugins and React + Testing Library + Jest](/packages/chapter-8)
+
+### Building real-world apps with Rematch
+- [Chapter 5: Amazhop website with React and TailwindCSS - PART I](/packages/chapter-5)
+- [Chapter 6: Amazhop website with Rematch and React - PART II](/packages/chapter-6)
+- [Chapter 7: Amazhop website with Rematch and React + Testing Library + Jest](/packages/chapter-7)
+- [Chapter 8: Amazhop website with Rematch and Rematch Plugins and React + Testing Library + Jest](/packages/chapter-8)
+
+### Diving deeper into Rematch
+- [Chapter 9: Rematch Plugin written from scratch with Tsdx and TypeScript](/packages/chapter-9)
+- [Chapter 10: Amazhop website rewriten to TypeScript with Rematch TypeScript](/packages/chapter-10)
+
 
 ## How to run any chapter code?
 
