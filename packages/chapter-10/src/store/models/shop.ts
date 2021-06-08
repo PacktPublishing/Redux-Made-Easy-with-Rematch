@@ -47,9 +47,8 @@ export const shop = createModel<RootModel>()({
         _page: currentPage,
         _limit: 10,
       });
-      // @ts-expect-error wannu
-      const totalCount = parseInt(headers.get("x-total-count"), 10);
-      dispatch.shop.SET_PRODUCTS({ products: data, totalCount });
+      const totalCount = parseInt((headers as any).get('x-total-count'), 10);
+      this.SET_PRODUCTS({ products: data, totalCount });
     },
     async setToFavorite({ id }: { id: string }, rootState) {
       const productIndex = rootState.shop.products.findIndex(
