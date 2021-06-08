@@ -1,46 +1,57 @@
+import { createModel, RematchRootState } from "@rematch/core"
+
 import ApiClient from "../../utils/apiClient";
+import type { RootModel } from ".";
+import type { Product } from "../../components/ProductList";
 
 const api = new ApiClient();
 
-export const filterByName = (rootState, query) =>
+export const filterByName = (rootState: RematchRootState<RootModel>, query: string) =>
   rootState.shop.products.filter((product) =>
     product.productName.toLowerCase().includes(query.toLowerCase())
   );
 
-export const shop = {
+type ShopState = {
+  products: Array<Product>
+  currentPage: number
+  totalCount: number
+  query: string | boolean
+}
+export const shop = createModel<RootModel>()({
   state: {
     products: [],
     currentPage: 1,
     totalCount: 0,
     query: "",
-  },
+  } as ShopState,
   reducers: {
-    SET_PRODUCTS(state, { products, totalCount }) {
+    SET_PRODUCTS(state, { products, totalCount }: { products: Array<Product>, totalCount: number }) {
       state.products.push(...products);
       state.currentPage += 1;
       state.totalCount = totalCount;
       return state;
     },
-    SET_QUERY(state, query) {
+    SET_QUERY(state, query: string) {
       state.query = query;
       return state;
     },
-    SET_FAVORITE(state, { indexToModify, product }) {
+    SET_FAVORITE(state, { indexToModify, product }: { indexToModify: number, product: Product }) {
       state.products[indexToModify] = product;
       return state;
     },
   },
-  effects: () => ({
+  effects: (dispatch) => ({
     async getProducts(_, rootState) {
       const { currentPage } = rootState.shop;
       const { data, headers } = await api.get("/products", {
         _page: currentPage,
         _limit: 10,
       });
+      // @ts-expect-error wannu
       const totalCount = parseInt(headers.get("x-total-count"), 10);
-      this.SET_PRODUCTS({ products: data, totalCount });
+      dispatch.shop.SET_PRODUCTS({ products: data, totalCount });
     },
-    async setToFavorite({ id }, rootState) {
+    async setToFavorite({ id }: { id: string }, rootState) {
       const productIndex = rootState.shop.products.findIndex(
         (el) => el.id === id
       );
@@ -49,7 +60,7 @@ export const shop = {
       const { data } = await api.patch(`/products/${id}`, {
         favorite: !product.favorite,
       });
-      this.SET_FAVORITE({ indexToModify: productIndex, product: data });
+      dispatch.shop.SET_FAVORITE({ indexToModify: productIndex, product: data });
     },
   }),
-};
+});

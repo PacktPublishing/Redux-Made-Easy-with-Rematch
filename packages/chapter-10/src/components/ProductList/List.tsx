@@ -7,15 +7,18 @@ import { Product } from "./Product";
 import { Spinner } from "../Spinner";
 import { filterByName } from "../../store/models/shop";
 
+import type { RematchRootState } from "@rematch/core";
+import type { RootModel } from "../../store/models";
+
 export const List = () => {
   const isLoading = useSelector(
-    (rootState) => rootState.loading.effects.shop.getProducts
+    (rootState: RematchRootState<RootModel>) => rootState.loading.effects.shop.getProducts
   );
-  const query = useSelector((rootState) => rootState.shop.query);
-  const products = useSelector((rootState) =>
-    query ? filterByName(rootState, query) : rootState.shop.products
+  const query = useSelector((rootState: RematchRootState<RootModel>) => rootState.shop.query);
+  const products = useSelector((rootState: RematchRootState<RootModel>) =>
+    query ? filterByName(rootState, query as string) : rootState.shop.products
   );
-  const totalCount = useSelector((rootState) => rootState.shop.totalCount);
+  const totalCount = useSelector((rootState: RematchRootState<RootModel>) => rootState.shop.totalCount);
 
   const hasNextPage = products.length < totalCount;
   const [infiniteRef] = useInfiniteScroll({

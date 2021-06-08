@@ -3,4 +3,4 @@ const nF = new Intl.NumberFormat("en-US", {
   currency: "USD",
 });
 
-export const number = (n) => nF.format(n);
+export const number = (n: number) => nF.format(n);

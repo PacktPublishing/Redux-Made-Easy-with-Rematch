@@ -45,7 +45,7 @@ describe("Cart", () => {
     expect(await screen.findByRole("list")).toBeInTheDocument();
     expect(screen.queryByRole("listitem")).toBeInTheDocument();
     expect(screen.getAllByText("$43.00")).toHaveLength(2);
-    userEvent.click(screen.queryByText("Clear"));
+    userEvent.click(screen.getByText("Clear"));
     expect(screen.queryByRole("listitem")).not.toBeInTheDocument();
   });
 
@@ -56,7 +56,7 @@ describe("Cart", () => {
     renderWithRematchStore(<Cart />, store);
     expect(screen.queryByLabelText("total cart")).toContainHTML("$43.00");
     expect(screen.queryByRole("listitem")).toBeInTheDocument();
-    userEvent.click(screen.queryByLabelText("purchase more"));
+    userEvent.click(screen.getByLabelText("purchase more"));
     expect(screen.queryByLabelText("total cart")).toContainHTML("$86.00");
   });
 
@@ -68,7 +68,7 @@ describe("Cart", () => {
     renderWithRematchStore(<Cart />, store);
     expect(screen.queryByLabelText("total cart")).toContainHTML("$86.00");
     expect(screen.queryByRole("listitem")).toBeInTheDocument();
-    userEvent.click(screen.queryByLabelText("remove"));
+    userEvent.click(screen.getByLabelText("remove"));
     expect(screen.queryByLabelText("total cart")).toContainHTML("$43.00");
   });
 
@@ -79,7 +79,7 @@ describe("Cart", () => {
     renderWithRematchStore(<Cart />, store);
     expect(screen.queryByLabelText("total cart")).toContainHTML("$43.00");
     expect(screen.queryByRole("listitem")).toBeInTheDocument();
-    userEvent.click(screen.queryByLabelText("remove"));
+    userEvent.click(screen.getByLabelText("remove"));
     expect(screen.queryByLabelText("total cart")).toContainHTML("$0.00");
     expect(screen.queryByRole("listitem")).not.toBeInTheDocument();
   });

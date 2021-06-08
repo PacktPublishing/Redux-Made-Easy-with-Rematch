@@ -1,8 +1,13 @@
 import React from "react";
 import { dispatch } from "../../store";
 import { number } from "../../utils/formatters";
+import type { Product } from "../ProductList";
 
-export const CartProduct = ({ product, quantity }) => (
+type CartProductProps = {
+  product: Product
+  quantity: number
+}
+export const CartProduct = ({ product, quantity }: CartProductProps) => (
   <article role="listitem" className="p-4 flex space-x-4">
     <img
       src={product.image_url}

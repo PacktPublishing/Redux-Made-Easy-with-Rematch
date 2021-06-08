@@ -1,6 +1,15 @@
 module.exports = {
+  testEnvironment: "jsdom",
   transform: {
-    "^.+\\.jsx?$": "esbuild-jest"
+    "^.+\\.tsx?$": [
+      "esbuild-jest",
+      {
+        sourcemap: true,
+        loaders: {
+          '.ts': 'tsx'
+        }
+      }
+    ]
   },
-  setupFilesAfterEnv: ["./test/setup-env.js"]
+  setupFilesAfterEnv: ["./test/setup-env.ts"]
 }

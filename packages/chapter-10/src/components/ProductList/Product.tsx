@@ -3,7 +3,19 @@ import clsx from "clsx";
 import { dispatch } from "../../store";
 import { number } from "../../utils/formatters";
 
-export const Product = ({ product }) => {
+export type Product = {
+  id: string
+  image_url: string
+  stock: number
+  price: number
+  productName: string
+  productDescription: string
+  favorite: boolean
+}
+type ProductProps = {
+  product: Product
+}
+export const Product = ({ product }: ProductProps) => {
   const hasStock = product.stock > 0;
   return (
     <div

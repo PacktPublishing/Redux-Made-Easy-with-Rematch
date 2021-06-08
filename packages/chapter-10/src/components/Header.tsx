@@ -31,6 +31,7 @@ export const Header = () => {
           onChange={(e) => setValue(e.target.value)}
           onKeyPress={(e) => {
             if (e.key === "Enter") {
+              // @ts-expect-error why
               dispatch.shop.SET_QUERY(e.target.value !== "" && e.target.value);
             }
           }}

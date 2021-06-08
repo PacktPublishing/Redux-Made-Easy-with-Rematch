@@ -1,18 +1,29 @@
-export const getProduct = (products, id) =>
-  products.find((product) => product.id === id);
-export const getQuantity = (state, id) => state.quantityById[id];
+import { createModel, RematchRootState } from "@rematch/core"
+import type { RootModel } from ".";
+import type { Product } from "../../components/ProductList";
 
-const INITIAL_STATE = {
+export const getProduct = (products: Array<Product>, id: string) =>
+  products.find((product) => product.id === id);
+export const getQuantity = (state: CartState, id: string) => state.quantityById[id];
+
+type CartState = {
+  addedIds: Array<string>
+  quantityById: Record<string, number>
+}
+
+const INITIAL_STATE: CartState = {
   addedIds: [],
   quantityById: {},
 };
-export const cart = {
+type AtLeast<T, K extends keyof T> = Partial<T> & Pick<T, K>
+
+export const cart = createModel<RootModel>()({
   state: INITIAL_STATE,
   reducers: {
     RESTORE_CART() {
       return INITIAL_STATE;
     },
-    ADD_TO_CART(state, product) {
+    ADD_TO_CART(state, product: AtLeast<Product, "id">) {
       const indexProduct = state.addedIds.indexOf(product.id);
       if (indexProduct === -1) {
         state.addedIds.push(product.id);
@@ -24,7 +35,7 @@ export const cart = {
         (state.quantityById[product.id] || 0) + 1;
       return state;
     },
-    REMOVE_FROM_CART(state, product) {
+    REMOVE_FROM_CART(state, product: AtLeast<Product, "id">) {
       const indexProduct = state.addedIds.indexOf(product.id);
       if (indexProduct === -1) return state;
 
@@ -45,7 +56,7 @@ export const cart = {
           cartState.addedIds.reduce(
             (total, id) =>
               total +
-              getProduct(products, id).price * getQuantity(cartState, id),
+              (getProduct(products, id)?.price || 0) * getQuantity(cartState, id),
             0
           )
       );
@@ -58,4 +69,4 @@ export const cart = {
       );
     },
   }),
-};
+});

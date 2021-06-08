@@ -58,7 +58,7 @@ describe("Product", () => {
         store
       );
       expect(screen.queryByText("Add to cart")).toBeInTheDocument();
-      userEvent.click(screen.queryByText("Add to cart"));
+      userEvent.click(screen.getByText("Add to cart"));
       expect(store.getState().cart).toEqual({
         addedIds: ["b590e450-1e0c-4344-92b8-e1f6cc260587"],
         quantityById: {
@@ -69,7 +69,7 @@ describe("Product", () => {
     it("should NOT dispatch add to cart when hasn't stock", () => {
       renderWithRematchStore(<Product product={productJson} />, store);
       expect(screen.queryByText("Add to cart")).toBeInTheDocument();
-      userEvent.click(screen.queryByText("Add to cart"));
+      userEvent.click(screen.getByText("Add to cart"));
       expect(store.getState().cart).toEqual({ addedIds: [], quantityById: {} });
     });
     it("should change the favorite button when dispatch favorite", async () => {

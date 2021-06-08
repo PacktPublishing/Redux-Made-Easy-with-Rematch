@@ -104,7 +104,7 @@ describe("Cart model", () => {
               ID: 3,
             },
           },
-        })
+        } as any)
       ).toEqual(9.99 * 3);
     });
     it("total() selector should return total", () => {
@@ -124,7 +124,7 @@ describe("Cart model", () => {
               ID: 3,
             },
           },
-        })
+        } as any)
       ).toEqual([{ id: "ID", price: 9.99 }]);
     });
   });

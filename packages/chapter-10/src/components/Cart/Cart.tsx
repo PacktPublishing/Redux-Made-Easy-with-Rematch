@@ -3,9 +3,11 @@ import { useSelector } from "react-redux";
 import { CartProduct } from "./CartProduct";
 import { dispatch, store } from "../../store";
 import { number } from "../../utils/formatters";
+import type { RematchRootState } from "@rematch/core";
+import type { RootModel } from "../../store/models";
 
 export const Cart = () => {
-  const quantityById = useSelector((rootState) => rootState.cart.quantityById);
+  const quantityById = useSelector((rootState: RematchRootState<RootModel>) => rootState.cart.quantityById);
   const cartProducts = useSelector(store.select.cart.getCartProducts);
   const totalPrice = useSelector(store.select.cart.total);
 
@@ -26,7 +28,7 @@ export const Cart = () => {
       </header>
       <div role="list" className="divide-y divide-gray-100">
         {cartProducts.length ? (
-          cartProducts.map((product) => (
+          cartProducts.map((product) => product &&  (
             <CartProduct
               key={product.id}
               product={product}

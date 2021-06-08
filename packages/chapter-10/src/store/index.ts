@@ -6,9 +6,9 @@ import createPersistPlugin from "@rematch/persist";
 
 import storage from "redux-persist/lib/storage";
 
-import { shop, cart } from "./models";
+import { shop, cart, RootModel } from "./models";
 
-export const store = init({
+export const store = init<RootModel>({
   models: { shop, cart },
   redux: {
     rootReducers: {
