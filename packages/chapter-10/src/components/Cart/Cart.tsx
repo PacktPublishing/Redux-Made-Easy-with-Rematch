@@ -1,13 +1,15 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import type { RematchRootState } from "@rematch/core";
 import { CartProduct } from "./CartProduct";
 import { dispatch, store } from "../../store";
 import { number } from "../../utils/formatters";
-import type { RematchRootState } from "@rematch/core";
 import type { RootModel } from "../../store/models";
 
 export const Cart = () => {
-  const quantityById = useSelector((rootState: RematchRootState<RootModel>) => rootState.cart.quantityById);
+  const quantityById = useSelector(
+    (rootState: RematchRootState<RootModel>) => rootState.cart.quantityById
+  );
   const cartProducts = useSelector(store.select.cart.getCartProducts);
   const totalPrice = useSelector(store.select.cart.total);
 
@@ -28,13 +30,16 @@ export const Cart = () => {
       </header>
       <div role="list" className="divide-y divide-gray-100">
         {cartProducts.length ? (
-          cartProducts.map((product) => product &&  (
-            <CartProduct
-              key={product.id}
-              product={product}
-              quantity={quantityById[product.id]}
-            />
-          ))
+          cartProducts.map(
+            (product) =>
+              product && (
+                <CartProduct
+                  key={product.id}
+                  product={product}
+                  quantity={quantityById[product.id]}
+                />
+              )
+          )
         ) : (
           <div className="text-center">
             <h5 className="font-medium text-lg pt-6">Empty cart</h5>

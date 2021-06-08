@@ -1,22 +1,25 @@
-import { createModel, RematchRootState } from "@rematch/core"
+import { createModel, RematchRootState } from "@rematch/core";
 
 import ApiClient from "../../utils/apiClient";
 import type { RootModel } from ".";
-import type { Product } from "../../components/ProductList";
+import type { ProductType } from "../../components/ProductList/Product";
 
 const api = new ApiClient();
 
-export const filterByName = (rootState: RematchRootState<RootModel>, query: string) =>
+export const filterByName = (
+  rootState: RematchRootState<RootModel>,
+  query: string
+) =>
   rootState.shop.products.filter((product) =>
     product.productName.toLowerCase().includes(query.toLowerCase())
   );
 
 type ShopState = {
-  products: Array<Product>
-  currentPage: number
-  totalCount: number
-  query: string | boolean
-}
+  products: Array<ProductType>;
+  currentPage: number;
+  totalCount: number;
+  query: string | boolean;
+};
 export const shop = createModel<RootModel>()({
   state: {
     products: [],
@@ -25,17 +28,29 @@ export const shop = createModel<RootModel>()({
     query: "",
   } as ShopState,
   reducers: {
-    SET_PRODUCTS(state, { products, totalCount }: { products: Array<Product>, totalCount: number }) {
+    SET_PRODUCTS(
+      state,
+      {
+        products,
+        totalCount,
+      }: { products: Array<ProductType>; totalCount: number }
+    ) {
       state.products.push(...products);
       state.currentPage += 1;
       state.totalCount = totalCount;
       return state;
     },
-    SET_QUERY(state, query: string) {
+    SET_QUERY(state, query: string | boolean) {
       state.query = query;
       return state;
     },
-    SET_FAVORITE(state, { indexToModify, product }: { indexToModify: number, product: Product }) {
+    SET_FAVORITE(
+      state,
+      {
+        indexToModify,
+        product,
+      }: { indexToModify: number; product: ProductType }
+    ) {
       state.products[indexToModify] = product;
       return state;
     },
@@ -47,7 +62,7 @@ export const shop = createModel<RootModel>()({
         _page: currentPage,
         _limit: 10,
       });
-      const totalCount = parseInt((headers as any).get('x-total-count'), 10);
+      const totalCount = parseInt((headers as any).get("x-total-count"), 10);
       this.SET_PRODUCTS({ products: data, totalCount });
     },
     async setToFavorite({ id }: { id: string }, rootState) {
@@ -59,7 +74,10 @@ export const shop = createModel<RootModel>()({
       const { data } = await api.patch(`/products/${id}`, {
         favorite: !product.favorite,
       });
-      dispatch.shop.SET_FAVORITE({ indexToModify: productIndex, product: data });
+      dispatch.shop.SET_FAVORITE({
+        indexToModify: productIndex,
+        product: data,
+      });
     },
   }),
 });

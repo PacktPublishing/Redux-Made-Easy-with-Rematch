@@ -2,6 +2,7 @@ import Http from "redaxios";
 
 class ApiClient {
   httpInstance: typeof Http;
+
   constructor() {
     this.httpInstance = Http.create({
       baseURL: "http://localhost:8000",
@@ -12,7 +13,11 @@ class ApiClient {
     return this.httpInstance.get(url, { params });
   }
 
-  async patch(url: string, body: Record<string, unknown>, params?: Record<string, unknown>) {
+  async patch(
+    url: string,
+    body: Record<string, unknown>,
+    params?: Record<string, unknown>
+  ) {
     return this.httpInstance.patch(url, body, { params });
   }
 }

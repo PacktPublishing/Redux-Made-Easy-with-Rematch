@@ -1,12 +1,12 @@
 import React from "react";
 import { dispatch } from "../../store";
 import { number } from "../../utils/formatters";
-import type { Product } from "../ProductList";
+import type { ProductType } from "../ProductList/Product";
 
 type CartProductProps = {
-  product: Product
-  quantity: number
-}
+  product: ProductType;
+  quantity: number;
+};
 export const CartProduct = ({ product, quantity }: CartProductProps) => (
   <article role="listitem" className="p-4 flex space-x-4">
     <img

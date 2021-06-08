@@ -1,21 +1,22 @@
-import { createModel, RematchRootState } from "@rematch/core"
+import { createModel } from "@rematch/core";
 import type { RootModel } from ".";
-import type { Product } from "../../components/ProductList";
+import type { ProductType } from "../../components/ProductList/Product";
 
-export const getProduct = (products: Array<Product>, id: string) =>
+export const getProduct = (products: Array<ProductType>, id: string) =>
   products.find((product) => product.id === id);
-export const getQuantity = (state: CartState, id: string) => state.quantityById[id];
+export const getQuantity = (state: CartState, id: string) =>
+  state.quantityById[id];
 
 type CartState = {
-  addedIds: Array<string>
-  quantityById: Record<string, number>
-}
+  addedIds: Array<string>;
+  quantityById: Record<string, number>;
+};
 
 const INITIAL_STATE: CartState = {
   addedIds: [],
   quantityById: {},
 };
-type AtLeast<T, K extends keyof T> = Partial<T> & Pick<T, K>
+type AtLeast<T, K extends keyof T> = Partial<T> & Pick<T, K>;
 
 export const cart = createModel<RootModel>()({
   state: INITIAL_STATE,
@@ -23,7 +24,7 @@ export const cart = createModel<RootModel>()({
     RESTORE_CART() {
       return INITIAL_STATE;
     },
-    ADD_TO_CART(state, product: AtLeast<Product, "id">) {
+    ADD_TO_CART(state, product: AtLeast<ProductType, "id">) {
       const indexProduct = state.addedIds.indexOf(product.id);
       if (indexProduct === -1) {
         state.addedIds.push(product.id);
@@ -35,7 +36,7 @@ export const cart = createModel<RootModel>()({
         (state.quantityById[product.id] || 0) + 1;
       return state;
     },
-    REMOVE_FROM_CART(state, product: AtLeast<Product, "id">) {
+    REMOVE_FROM_CART(state, product: AtLeast<ProductType, "id">) {
       const indexProduct = state.addedIds.indexOf(product.id);
       if (indexProduct === -1) return state;
 
@@ -56,7 +57,8 @@ export const cart = createModel<RootModel>()({
           cartState.addedIds.reduce(
             (total, id) =>
               total +
-              (getProduct(products, id)?.price || 0) * getQuantity(cartState, id),
+              (getProduct(products, id)?.price || 0) *
+                getQuantity(cartState, id),
             0
           )
       );

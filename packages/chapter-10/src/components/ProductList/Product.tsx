@@ -3,18 +3,18 @@ import clsx from "clsx";
 import { dispatch } from "../../store";
 import { number } from "../../utils/formatters";
 
-export type Product = {
-  id: string
-  image_url: string
-  stock: number
-  price: number
-  productName: string
-  productDescription: string
-  favorite: boolean
-}
+export type ProductType = {
+  id: string;
+  image_url: string;
+  stock: number;
+  price: number;
+  productName: string;
+  productDescription: string;
+  favorite: boolean;
+};
 type ProductProps = {
-  product: Product
-}
+  product: ProductType;
+};
 export const Product = ({ product }: ProductProps) => {
   const hasStock = product.stock > 0;
   return (
