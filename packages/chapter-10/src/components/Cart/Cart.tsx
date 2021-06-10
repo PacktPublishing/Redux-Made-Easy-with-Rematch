@@ -1,14 +1,14 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import type { RematchRootState } from "@rematch/core";
 import { CartProduct } from "./CartProduct";
 import { dispatch, store } from "../../store";
 import { number } from "../../utils/formatters";
-import type { RootModel } from "../../store/models";
+
+import type { RootState } from "../../store";
 
 export const Cart = () => {
   const quantityById = useSelector(
-    (rootState: RematchRootState<RootModel>) => rootState.cart.quantityById
+    (rootState: RootState) => rootState.cart.quantityById
   );
   const cartProducts = useSelector(store.select.cart.getCartProducts);
   const totalPrice = useSelector(store.select.cart.total);

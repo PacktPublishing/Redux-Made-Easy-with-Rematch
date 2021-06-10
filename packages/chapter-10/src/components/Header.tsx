@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import type { RematchDispatch } from "@rematch/core";
-import type { RootModel } from "../store/models";
+import type { Dispatch } from "../store";
 
 export const Header = () => {
-  const dispatch = useDispatch<RematchDispatch<RootModel>>();
+  const dispatch = useDispatch<Dispatch>();
   const [value, setValue] = useState("");
 
   return (

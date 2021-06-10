@@ -1,5 +1,5 @@
-import { init } from "@rematch/core";
-import createLoadingPlugin from "@rematch/loading";
+import { init, RematchDispatch, RematchRootState } from "@rematch/core";
+import createLoadingPlugin, { ExtraModelsFromLoading } from "@rematch/loading";
 import createImmerPlugin from "@rematch/immer";
 import createSelectPlugin from "@rematch/select";
 import createPersistPlugin from "@rematch/persist";
@@ -8,7 +8,9 @@ import storage from "redux-persist/lib/storage";
 
 import { shop, cart, RootModel } from "./models";
 
-export const store = init<RootModel>({
+type FullModel = ExtraModelsFromLoading<RootModel>;
+
+export const store = init<RootModel, FullModel>({
   models: { shop, cart },
   redux: {
     rootReducers: {
@@ -28,3 +30,6 @@ export const store = init<RootModel>({
 });
 
 export const { dispatch } = store;
+
+export type Dispatch = RematchDispatch<RootModel>;
+export type RootState = RematchRootState<RootModel, FullModel>;
