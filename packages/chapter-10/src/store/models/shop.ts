@@ -20,6 +20,7 @@ type ShopState = {
   totalCount: number;
   query: string | boolean;
 };
+
 export const shop = createModel<RootModel>()({
   state: {
     products: [],
