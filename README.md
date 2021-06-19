@@ -1,8 +1,9 @@
 # Redux made easy with **Rematch**
 
-<a href="https://www.nodejsdesignpatterns.com"><img width="240" align="right" src="https://images-na.ssl-images-amazon.com/images/I/41FTChr4zyS._SX403_BO1,204,203,200_.jpg"></a>
+<a href="https://www.amazon.com/Redux-made-easy-Rematch-boilerplate-ebook/dp/B092RFFGNS"><img width="240" align="right" src="https://images-na.ssl-images-amazon.com/images/I/41FTChr4zyS._SX403_BO1,204,203,200_.jpg"></a>
 
 ### [🌎 Official website](https://rematchjs.org)
+### [🛍️ Amazon link](https://www.amazon.com/Redux-made-easy-Rematch-boilerplate-ebook/dp/B092RFFGNS)
 
 ## What's this book about
 
