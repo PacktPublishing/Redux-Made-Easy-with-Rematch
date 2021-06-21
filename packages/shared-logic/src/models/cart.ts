@@ -1,6 +1,6 @@
 import { createModel } from "@rematch/core";
 import type { RootModel } from ".";
-import type { ProductType } from "../../types";
+import type { ProductType } from "./types";
 
 export const getProduct = (products: Array<ProductType>, id: string) =>
   products.find((product) => product.id === id);

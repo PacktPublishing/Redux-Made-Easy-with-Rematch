@@ -1,8 +1,8 @@
 import { createModel, RematchRootState } from "@rematch/core";
 
-import ApiClient from "../../utils/apiClient";
+import ApiClient from "./apiClient";
 import type { RootModel } from ".";
-import type { ProductType } from "../../types";
+import type { ProductType } from "./types";
 
 const api = new ApiClient();
 

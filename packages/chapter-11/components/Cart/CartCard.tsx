@@ -6,7 +6,7 @@ import { useDispatch } from "react-redux";
 import { useNavigation } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
 
-import { Dispatch } from "../../store";
+import type { Dispatch } from "@amazhop/logic";
 import { number } from "../../utils/formatters";
 import type { ProductType, RootStackParamList } from "../../types";
 

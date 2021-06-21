@@ -5,8 +5,9 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 import { useDispatch } from "react-redux";
 import { useNavigation } from "@react-navigation/native";
 
+import type { Dispatch } from "@amazhop/logic";
+
 import { number } from "../../utils/formatters";
-import { Dispatch } from "../../store";
 import type { ProductType } from "../../types";
 
 type ProductCardType = {

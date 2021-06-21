@@ -3,8 +3,7 @@ import { FontAwesome5 } from "@expo/vector-icons";
 import { View, StyleSheet, TextInput } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { useDispatch } from "react-redux";
-
-import type { Dispatch } from "../store";
+import type { Dispatch } from "@amazhop/logic";
 
 export default function TextField({ value = "" }: { value: string | boolean }) {
   const dispatch = useDispatch<Dispatch>();

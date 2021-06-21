@@ -2,9 +2,9 @@ import React from "react";
 import { Text, View, Image, StyleSheet, Pressable } from "react-native";
 import { useDispatch } from "react-redux";
 import { StackScreenProps } from "@react-navigation/stack";
+import { Dispatch } from "@amazhop/logic";
 
 import { number } from "../utils/formatters";
-import { Dispatch } from "../store";
 import { RootStackParamList } from "../types";
 
 const ProductDetailScreen = ({

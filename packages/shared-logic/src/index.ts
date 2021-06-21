@@ -4,6 +4,7 @@ import createImmerPlugin from "@rematch/immer";
 import createSelectPlugin from "@rematch/select";
 
 import { shop, cart, RootModel } from "./models";
+import { filterByName } from "./models/shop";
 
 type FullModel = ExtraModelsFromLoading<RootModel>;
 
@@ -21,3 +22,5 @@ export const { dispatch } = store;
 
 export type Dispatch = RematchDispatch<RootModel>;
 export type RootState = RematchRootState<RootModel, FullModel>;
+
+export { filterByName }

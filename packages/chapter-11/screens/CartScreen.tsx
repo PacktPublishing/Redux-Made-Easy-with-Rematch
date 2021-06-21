@@ -3,9 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { ScrollView, StyleSheet, Dimensions, View, Text } from "react-native";
 import { StackNavigationProp } from "@react-navigation/stack";
+import { Dispatch, store, RootState } from "@amazhop/logic";
 
 import CartCard from "../components/Cart/CartCard";
-import { Dispatch, store, RootState } from "../store";
 import { number } from "../utils/formatters";
 import { RootStackParamList } from "../types";
 

@@ -4,11 +4,10 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { StackScreenProps } from "@react-navigation/stack";
+import { Dispatch, RootState, filterByName } from "@amazhop/logic";
 
 import TextField from "../components/TextField";
 import ProductCard from "../components/Product/ProductCard";
-import { Dispatch, RootState } from "../store";
-import { filterByName } from "../store/models/shop";
 import { RootStackParamList } from "../types";
 
 const ShopScreen = ({
