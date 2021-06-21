@@ -18,10 +18,12 @@ export type BottomTabParamList = {
 
 export type TabOneParamList = {
   Shop: undefined;
+  ProductDetail: { item: ProductType };
 };
 
 export type TabTwoParamList = {
   Cart: undefined;
+  ProductDetail: { item: ProductType };
 };
 
 export type ProductType = {

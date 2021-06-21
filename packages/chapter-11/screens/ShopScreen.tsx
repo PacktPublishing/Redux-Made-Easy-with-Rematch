@@ -1,11 +1,5 @@
 import { FontAwesome5 } from "@expo/vector-icons";
-import {
-  View,
-  Text,
-  StyleSheet,
-  ScrollView,
-  ActivityIndicator,
-} from "react-native";
+import { View, Text, StyleSheet, FlatList } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
@@ -21,9 +15,6 @@ const ShopScreen = ({
   navigation,
 }: StackScreenProps<RootStackParamList, "Shop">) => {
   const dispatch = useDispatch<Dispatch>();
-  const loading = useSelector(
-    (rootState: RootState) => rootState.loading.models.shop
-  );
   const query = useSelector((rootState: RootState) => rootState.shop.query);
   const products = useSelector((rootState: RootState) =>
     query ? filterByName(rootState, query.toString()) : rootState.shop.products
@@ -55,36 +46,23 @@ const ShopScreen = ({
         </View>
       </View>
       <TextField value={query} />
-      {loading ? (
-        <ActivityIndicator size="large" color="#424242" />
-      ) : (
-        <ScrollView style={{ marginTop: 24 }}>
+      <FlatList
+        data={products}
+        numColumns={2}
+        keyExtractor={(i) => i.id}
+        onEndReached={() => dispatch.shop.getProducts()}
+        onEndReachedThreshold={0.5}
+        initialNumToRender={10}
+        renderItem={({ item }) => (
           <View
             style={{
-              margin: -8,
-              flexWrap: "wrap",
-              paddingBottom: 172,
-              flexDirection: "row",
+              width: "50%",
             }}
           >
-            {products.map((product) => (
-              <View
-                key={product.id}
-                style={{
-                  maxWidth: "50%",
-                  minWidth: "50%",
-                  alignSelf: "stretch",
-                }}
-              >
-                <ProductCard
-                  data={product}
-                  quantity={quantityById[product.id] || 0}
-                />
-              </View>
-            ))}
+            <ProductCard data={item} quantity={quantityById[item.id] || 0} />
           </View>
-        </ScrollView>
-      )}
+        )}
+      />
     </View>
   );
 };

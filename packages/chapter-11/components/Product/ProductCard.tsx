@@ -5,8 +5,8 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 import { useDispatch } from "react-redux";
 import { useNavigation } from "@react-navigation/native";
 
-import { Dispatch } from "../../store";
 import { number } from "../../utils/formatters";
+import { Dispatch } from "../../store";
 import type { ProductType } from "../../types";
 
 type ProductCardType = {
@@ -39,19 +39,32 @@ const ProductCard = ({ data, quantity }: ProductCardType) => {
           </Text>
         </View>
         <View style={styles.actions}>
-          <View style={{ padding: 4 }}>
+          <View style={{ padding: 10 }}>
             <Text style={styles.count}>{quantity}</Text>
           </View>
           <View>
             <TouchableOpacity
-              disabled={stock < 0}
-              style={styles.countIcon}
+              disabled={stock === 0}
+              style={
+                stock === 0
+                  ? { ...styles.countIcon, backgroundColor: "#00000066" }
+                  : styles.countIcon
+              }
               onPress={() => dispatch.cart.ADD_TO_CART({ id })}
             >
               <FontAwesome5 name="plus" size={12} color="#FFFFFF" />
             </TouchableOpacity>
             <TouchableOpacity
-              style={{ ...styles.countIcon, marginTop: 4 }}
+              disabled={stock === 0}
+              style={
+                stock === 0
+                  ? {
+                      ...styles.countIcon,
+                      marginTop: 4,
+                      backgroundColor: "#00000066",
+                    }
+                  : { ...styles.countIcon, marginTop: 4 }
+              }
               onPress={() => dispatch.cart.REMOVE_FROM_CART({ id })}
             >
               <FontAwesome5 name="minus" size={12} color="#FFFFFF" />
@@ -74,7 +87,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     margin: 8,
-    padding: 16,
+    padding: 12,
+    paddingBottom: 2,
     borderRadius: 12,
     alignSelf: "stretch",
     alignItems: "flex-start",
@@ -90,6 +104,7 @@ const styles = StyleSheet.create({
   },
   actions: {
     padding: 5,
+    marginTop: 10,
     borderRadius: 6,
     alignItems: "center",
     flexDirection: "row",
@@ -137,6 +152,13 @@ const styles = StyleSheet.create({
   },
   countIcon: {
     backgroundColor: "black",
+    borderRadius: 4,
+    paddingLeft: 6,
+    paddingRight: 6,
+    padding: 4,
+  },
+  disabledCountIcon: {
+    backgroundColor: "grey",
     borderRadius: 4,
     paddingLeft: 6,
     paddingRight: 6,

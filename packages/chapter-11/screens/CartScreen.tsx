@@ -1,5 +1,4 @@
 import React from "react";
-import { FontAwesome5 } from "@expo/vector-icons";
 import { useDispatch, useSelector } from "react-redux";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { ScrollView, StyleSheet, Dimensions, View, Text } from "react-native";
@@ -26,17 +25,6 @@ const CartScreen = ({ navigation }: CartType) => {
 
   return (
     <View style={{ ...styles.container, minHeight: windowHeight }}>
-      <View style={styles.topBar}>
-        <TouchableOpacity onPress={() => navigation.goBack()}>
-          <FontAwesome5
-            style={{ margin: 12 }}
-            name="chevron-left"
-            color="#424242"
-            size={24}
-          />
-        </TouchableOpacity>
-        <View style={{ width: 45 }} />
-      </View>
       <ScrollView>
         {cartProducts.length ? (
           <View style={{ marginTop: 8, paddingBottom: 96 }}>
@@ -130,6 +118,7 @@ const styles = StyleSheet.create({
   topBar: {
     minWidth: "100%",
     flexDirection: "row",
+    textAlign: "center",
     alignItems: "center",
     justifyContent: "space-between",
   },

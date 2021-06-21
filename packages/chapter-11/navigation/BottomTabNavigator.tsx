@@ -11,12 +11,13 @@ import * as React from "react";
 import { BottomTabParamList, TabOneParamList, TabTwoParamList } from "../types";
 import ShopScreen from "../screens/ShopScreen";
 import CartScreen from "../screens/CartScreen";
+import ProductDetailScreen from "../screens/ProductDetailScreen";
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
 
 export default function BottomTabNavigator() {
   return (
-    <BottomTab.Navigator initialRouteName="Shop">
+    <BottomTab.Navigator initialRouteName="Shop" backBehavior="order">
       <BottomTab.Screen
         name="Shop"
         component={ShopScreenNavigator}
@@ -61,10 +62,10 @@ const TabOneStack = createStackNavigator<TabOneParamList>();
 function ShopScreenNavigator() {
   return (
     <TabOneStack.Navigator>
+      <TabOneStack.Screen name="Shop" component={ShopScreen} />
       <TabOneStack.Screen
-        name="Shop"
-        component={ShopScreen}
-        options={{ headerTitle: "Shop" }}
+        name="ProductDetail"
+        component={ProductDetailScreen}
       />
     </TabOneStack.Navigator>
   );
@@ -75,10 +76,10 @@ const TabTwoStack = createStackNavigator<TabTwoParamList>();
 function CartScreenNavigator() {
   return (
     <TabTwoStack.Navigator>
-      <TabTwoStack.Screen
-        name="Cart"
-        component={CartScreen}
-        options={{ headerTitle: "Cart" }}
+      <TabTwoStack.Screen name="Cart" component={CartScreen} />
+      <TabOneStack.Screen
+        name="ProductDetail"
+        component={ProductDetailScreen}
       />
     </TabTwoStack.Navigator>
   );

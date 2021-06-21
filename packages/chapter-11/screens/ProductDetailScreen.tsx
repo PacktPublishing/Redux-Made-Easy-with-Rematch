@@ -1,7 +1,5 @@
 import React from "react";
-import { FontAwesome5 } from "@expo/vector-icons";
 import { Text, View, Image, StyleSheet, Pressable } from "react-native";
-import { TouchableOpacity } from "react-native-gesture-handler";
 import { useDispatch } from "react-redux";
 import { StackScreenProps } from "@react-navigation/stack";
 
@@ -19,14 +17,6 @@ const ProductDetailScreen = ({
   const { id, productName, price, image_url, stock, productDescription } = item;
   return (
     <View style={styles.container}>
-      <TouchableOpacity onPress={() => navigation.goBack()}>
-        <FontAwesome5
-          style={{ marginTop: 30 }}
-          name="chevron-left"
-          color="#424242"
-          size={24}
-        />
-      </TouchableOpacity>
       <Image
         style={styles.box}
         source={{ uri: image_url }}
@@ -42,7 +32,12 @@ const ProductDetailScreen = ({
         <Text style={styles.about}>About this product</Text>
         <Text style={styles.desc}>{productDescription}</Text>
         <Pressable
-          style={styles.addToCart}
+          disabled={stock === 0}
+          style={
+            stock === 0
+              ? { ...styles.addToCart, backgroundColor: "#00000066" }
+              : styles.addToCart
+          }
           onPress={() => {
             dispatch.cart.ADD_TO_CART({ id });
             navigation.navigate("Shop");

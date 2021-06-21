@@ -4,7 +4,7 @@ import { View, StyleSheet, TextInput } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { useDispatch } from "react-redux";
 
-import { Dispatch } from "../store";
+import type { Dispatch } from "../store";
 
 export default function TextField({ value = "" }: { value: string | boolean }) {
   const dispatch = useDispatch<Dispatch>();
@@ -13,7 +13,7 @@ export default function TextField({ value = "" }: { value: string | boolean }) {
       <View style={styles.searchContainer}>
         <FontAwesome5 name="search" size={18} color="#424242" />
         <TextInput
-          value={value.toString()}
+          value={!value ? "" : value.toString()}
           style={styles.input}
           placeholder="Query any product by their name"
           onChangeText={(text: string) => dispatch.shop.SET_QUERY(text)}
@@ -33,6 +33,9 @@ const styles = StyleSheet.create({
   searchSection: {
     height: 48,
     borderRadius: 12,
+    borderColor: "#f3f3f3",
+    borderWidth: 2,
+    margin: 4,
   },
   searchContainer: {
     padding: 4,
