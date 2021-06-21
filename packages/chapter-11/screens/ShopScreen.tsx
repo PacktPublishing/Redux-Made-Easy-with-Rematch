@@ -54,11 +54,7 @@ const ShopScreen = ({
         onEndReachedThreshold={0.5}
         initialNumToRender={10}
         renderItem={({ item }) => (
-          <View
-            style={{
-              width: "50%",
-            }}
-          >
+          <View style={{ width: "50%" }}>
             <ProductCard data={item} quantity={quantityById[item.id] || 0} />
           </View>
         )}
