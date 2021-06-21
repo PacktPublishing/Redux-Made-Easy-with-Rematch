@@ -6,16 +6,14 @@ import { useDispatch } from "react-redux";
 
 import { Dispatch } from "../store";
 
-export default function TextField({
-  value = "",
-}: any) {
+export default function TextField({ value = "" }: { value: string | boolean }) {
   const dispatch = useDispatch<Dispatch>();
   return (
     <View style={styles.searchSection}>
       <View style={styles.searchContainer}>
         <FontAwesome5 name="search" size={18} color="#424242" />
         <TextInput
-          value={value}
+          value={value.toString()}
           style={styles.input}
           placeholder="Query any product by their name"
           onChangeText={(text: string) => dispatch.shop.SET_QUERY(text)}

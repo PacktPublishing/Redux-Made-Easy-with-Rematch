@@ -5,8 +5,8 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 import { useDispatch } from "react-redux";
 import { StackScreenProps } from "@react-navigation/stack";
 
-import { number } from "../utils/formatters"
-import { Dispatch } from "../store"
+import { number } from "../utils/formatters";
+import { Dispatch } from "../store";
 import { RootStackParamList } from "../types";
 
 const ProductDetailScreen = ({
@@ -14,7 +14,7 @@ const ProductDetailScreen = ({
   route: {
     params: { item },
   },
-}: StackScreenProps<RootStackParamList, 'ProductDetail'>) => {
+}: StackScreenProps<RootStackParamList, "ProductDetail">) => {
   const dispatch = useDispatch<Dispatch>();
   const { id, productName, price, image_url, stock, productDescription } = item;
   return (
@@ -27,30 +27,33 @@ const ProductDetailScreen = ({
           size={24}
         />
       </TouchableOpacity>
-      <Image style={styles.box} source={{ uri: image_url }} resizeMode="contain" />
+      <Image
+        style={styles.box}
+        source={{ uri: image_url }}
+        resizeMode="contain"
+      />
       <View style={{ padding: 8 }}>
         <Text style={styles.title}>{productName}</Text>
         <View style={styles.priceWrapper}>
           <Text style={styles.price}>{number(price)}</Text>
         </View>
 
-        <Text style={styles.weight}>{stock > 0 ? 'In stock': 'No stock'}</Text>
+        <Text style={styles.weight}>{stock > 0 ? "In stock" : "No stock"}</Text>
         <Text style={styles.about}>About this product</Text>
-        <Text style={styles.desc}>
-          {productDescription}
-        </Text>
-        <Pressable style={styles.addToCart} onPress={() => {
-           dispatch.cart.ADD_TO_CART({ id });
-           navigation.navigate('Shop')
-        }}>
-          <Text style={styles.addToCartText}>
-            Add to cart
-          </Text>
+        <Text style={styles.desc}>{productDescription}</Text>
+        <Pressable
+          style={styles.addToCart}
+          onPress={() => {
+            dispatch.cart.ADD_TO_CART({ id });
+            navigation.navigate("Shop");
+          }}
+        >
+          <Text style={styles.addToCartText}>Add to cart</Text>
         </Pressable>
       </View>
     </View>
   );
-}
+};
 
 export default ProductDetailScreen;
 
@@ -90,22 +93,22 @@ const styles = StyleSheet.create({
     fontFamily: "Montserrat-SemiBold",
   },
   addToCart: {
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
     paddingVertical: 12,
     marginTop: 20,
     paddingHorizontal: 32,
     borderRadius: 4,
     elevation: 3,
-    backgroundColor: 'black',
+    backgroundColor: "black",
     fontFamily: "Montserrat-SemiBold",
   },
   addToCartText: {
     fontSize: 16,
     lineHeight: 21,
-    fontWeight: 'bold',
+    fontWeight: "bold",
     letterSpacing: 0.25,
-    color: 'white',
+    color: "white",
   },
   weight: {
     fontSize: 16,

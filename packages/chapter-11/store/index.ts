@@ -14,11 +14,7 @@ export const store = init<RootModel, FullModel>({
       RESET: () => undefined,
     },
   },
-  plugins: [
-    createLoadingPlugin(),
-    createSelectPlugin(),
-    createImmerPlugin(),
-  ],
+  plugins: [createLoadingPlugin(), createSelectPlugin(), createImmerPlugin()],
 });
 
 export const { dispatch } = store;

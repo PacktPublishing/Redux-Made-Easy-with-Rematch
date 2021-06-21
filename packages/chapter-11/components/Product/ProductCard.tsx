@@ -3,16 +3,16 @@ import { FontAwesome5 } from "@expo/vector-icons";
 import { Text, View, StyleSheet, Image } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { useDispatch } from "react-redux";
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation } from "@react-navigation/native";
 
 import { Dispatch } from "../../store";
 import { number } from "../../utils/formatters";
 import type { ProductType } from "../../types";
 
 type ProductCardType = {
-  data: ProductType
-  quantity: number
-}
+  data: ProductType;
+  quantity: number;
+};
 
 const ProductCard = ({ data, quantity }: ProductCardType) => {
   const { id, productName, price, stock, image_url, favorite } = data;
@@ -34,13 +34,13 @@ const ProductCard = ({ data, quantity }: ProductCardType) => {
             <Text style={styles.price}>{number(price)}</Text>
           </View>
           <Text style={styles.title}>{productName}</Text>
-          <Text style={styles.stock}>{stock > 0 ? 'In stock' : 'No stock'}</Text>
+          <Text style={styles.stock}>
+            {stock > 0 ? "In stock" : "No stock"}
+          </Text>
         </View>
         <View style={styles.actions}>
           <View style={{ padding: 4 }}>
-            <Text style={styles.count}>
-              {quantity}
-            </Text>
+            <Text style={styles.count}>{quantity}</Text>
           </View>
           <View>
             <TouchableOpacity
@@ -66,7 +66,7 @@ const ProductCard = ({ data, quantity }: ProductCardType) => {
       </View>
     </View>
   );
-}
+};
 
 export default ProductCard;
 
@@ -109,7 +109,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     borderRadius: 12,
     height: undefined,
-    aspectRatio: 1
+    aspectRatio: 1,
   },
   priceWrapper: {
     flexDirection: "row",

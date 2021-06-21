@@ -6,13 +6,13 @@ import { ScrollView, StyleSheet, Dimensions, View, Text } from "react-native";
 import { StackNavigationProp } from "@react-navigation/stack";
 
 import CartCard from "../components/Cart/CartCard";
-import { Dispatch, store, RootState } from "../store"
-import { number } from "../utils/formatters"
+import { Dispatch, store, RootState } from "../store";
+import { number } from "../utils/formatters";
 import { RootStackParamList } from "../types";
 
 type CartType = {
-  navigation: StackNavigationProp<RootStackParamList, 'Cart'>
-}
+  navigation: StackNavigationProp<RootStackParamList, "Cart">;
+};
 
 const CartScreen = ({ navigation }: CartType) => {
   const dispatch = useDispatch<Dispatch>();
@@ -36,19 +36,22 @@ const CartScreen = ({ navigation }: CartType) => {
           />
         </TouchableOpacity>
         <Text style={styles.heading}>Cart</Text>
-        <View style={{ width: 45 }}></View>
+        <View style={{ width: 45 }} />
       </View>
       <ScrollView>
         {cartProducts.length ? (
           <View style={{ marginTop: 8, paddingBottom: 96 }}>
-            {cartProducts.map((item) => item && (
-              <CartCard
-                data={item}
-                quantity={quantityById[item.id] || 0}
-                key={item.id}
-                navigation={navigation}
-              />
-            ))}
+            {cartProducts.map(
+              (item) =>
+                item && (
+                  <CartCard
+                    data={item}
+                    quantity={quantityById[item.id] || 0}
+                    key={item.id}
+                    navigation={navigation}
+                  />
+                )
+            )}
             <View
               style={{
                 padding: 16,
@@ -82,7 +85,7 @@ const CartScreen = ({ navigation }: CartType) => {
             <TouchableOpacity
               onPress={() => {
                 dispatch.cart.RESTORE_CART();
-                navigation.navigate('Shop')
+                navigation.navigate("Shop");
               }}
               style={{
                 backgroundColor: "#424242",
@@ -103,19 +106,21 @@ const CartScreen = ({ navigation }: CartType) => {
             </TouchableOpacity>
           </View>
         ) : (
-          <Text style={{
-            fontSize: 18,
-            color: "#FFFFFF",
-            textAlign: "center",
-            fontFamily: "Montserrat-SemiBold",
-          }}>
+          <Text
+            style={{
+              fontSize: 18,
+              color: "#FFFFFF",
+              textAlign: "center",
+              fontFamily: "Montserrat-SemiBold",
+            }}
+          >
             No Items in cart
           </Text>
         )}
       </ScrollView>
     </View>
   );
-}
+};
 
 export default CartScreen;
 

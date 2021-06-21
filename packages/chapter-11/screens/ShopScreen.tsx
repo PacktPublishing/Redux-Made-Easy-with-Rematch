@@ -17,30 +17,34 @@ import { Dispatch, RootState } from "../store";
 import { filterByName } from "../store/models/shop";
 import { RootStackParamList } from "../types";
 
-const ShopScreen = ({ navigation }: StackScreenProps<RootStackParamList, 'Shop'>) => {
+const ShopScreen = ({
+  navigation,
+}: StackScreenProps<RootStackParamList, "Shop">) => {
   const dispatch = useDispatch<Dispatch>();
-  const loading = useSelector((rootState: RootState) => rootState.loading.models.shop)
+  const loading = useSelector(
+    (rootState: RootState) => rootState.loading.models.shop
+  );
   const query = useSelector((rootState: RootState) => rootState.shop.query);
   const products = useSelector((rootState: RootState) =>
     query ? filterByName(rootState, query.toString()) : rootState.shop.products
   );
-  const totalCartProducts = useSelector((rootState: RootState) => rootState.cart.addedIds.length)
+  const totalCartProducts = useSelector(
+    (rootState: RootState) => rootState.cart.addedIds.length
+  );
   const quantityById = useSelector(
     (rootState: RootState) => rootState.cart.quantityById
   );
 
   useEffect(() => {
-    dispatch.shop.getProducts()
-  }, [])
+    dispatch.shop.getProducts();
+  }, []);
 
   return (
     <View style={styles.container}>
       <View style={styles.topBar}>
         <Text style={styles.heading}>Amazhop</Text>
         <View>
-          <TouchableOpacity
-            onPress={() => navigation.navigate("Cart")}
-          >
+          <TouchableOpacity onPress={() => navigation.navigate("Cart")}>
             <FontAwesome5 name="shopping-basket" size={24} color="#424242" />
           </TouchableOpacity>
           {totalCartProducts > 0 ? (
@@ -50,13 +54,10 @@ const ShopScreen = ({ navigation }: StackScreenProps<RootStackParamList, 'Shop'>
           ) : null}
         </View>
       </View>
-      <TextField
-        value={query}
-        placeholder="Search"
-      />
+      <TextField value={query} placeholder="Search" />
       {loading ? (
         <ActivityIndicator size="large" color="#424242" />
-      ): (
+      ) : (
         <ScrollView style={{ marginTop: 24 }}>
           <View
             style={{
@@ -77,7 +78,7 @@ const ShopScreen = ({ navigation }: StackScreenProps<RootStackParamList, 'Shop'>
               >
                 <ProductCard
                   data={product}
-                  quantity={quantityById[product.id] || 0}
+                  quantity={quantityById[product.id] || 0}
                 />
               </View>
             ))}
@@ -86,7 +87,7 @@ const ShopScreen = ({ navigation }: StackScreenProps<RootStackParamList, 'Shop'>
       )}
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {

@@ -3,21 +3,20 @@
  * https://reactnavigation.org/docs/bottom-tab-navigator
  */
 
-import { Ionicons } from '@expo/vector-icons';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { createStackNavigator } from '@react-navigation/stack';
-import * as React from 'react';
+import { Ionicons } from "@expo/vector-icons";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { createStackNavigator } from "@react-navigation/stack";
+import * as React from "react";
 
-import { BottomTabParamList, TabOneParamList, TabTwoParamList } from '../types';
-import ShopScreen from '../screens/ShopScreen';
-import CartScreen from '../screens/CartScreen';
+import { BottomTabParamList, TabOneParamList, TabTwoParamList } from "../types";
+import ShopScreen from "../screens/ShopScreen";
+import CartScreen from "../screens/CartScreen";
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
 
 export default function BottomTabNavigator() {
   return (
-    <BottomTab.Navigator
-      initialRouteName="Shop">
+    <BottomTab.Navigator initialRouteName="Shop">
       <BottomTab.Screen
         name="Shop"
         component={ShopScreenNavigator}
@@ -38,8 +37,21 @@ export default function BottomTabNavigator() {
 
 // You can explore the built-in icon families and icons on the web at:
 // https://icons.expo.fyi/
-function TabBarIcon(props: { name: React.ComponentProps<typeof Ionicons>['name']; color: string }) {
-  return <Ionicons size={30} style={{ marginBottom: -3 }} {...props} />;
+function TabBarIcon({
+  name,
+  color,
+}: {
+  name: React.ComponentProps<typeof Ionicons>["name"];
+  color: string;
+}) {
+  return (
+    <Ionicons
+      size={30}
+      style={{ marginBottom: -3 }}
+      color={color}
+      name={name}
+    />
+  );
 }
 
 // Each tab has its own navigation stack, you can read more about this pattern here:
@@ -52,7 +64,7 @@ function ShopScreenNavigator() {
       <TabOneStack.Screen
         name="Shop"
         component={ShopScreen}
-        options={{ headerTitle: 'Shop' }}
+        options={{ headerTitle: "Shop" }}
       />
     </TabOneStack.Navigator>
   );
@@ -66,7 +78,7 @@ function CartScreenNavigator() {
       <TabTwoStack.Screen
         name="Cart"
         component={CartScreen}
-        options={{ headerTitle: 'Cart' }}
+        options={{ headerTitle: "Cart" }}
       />
     </TabTwoStack.Navigator>
   );

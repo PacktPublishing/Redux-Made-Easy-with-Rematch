@@ -3,18 +3,20 @@ import { FontAwesome5 } from "@expo/vector-icons";
 import { StyleSheet, Image, View, Text } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { useDispatch } from "react-redux";
+import { useNavigation } from "@react-navigation/native";
+import { StackNavigationProp } from "@react-navigation/stack";
 
 import { Dispatch } from "../../store";
 import { number } from "../../utils/formatters";
-import type { ProductType } from "../../types";
+import type { ProductType, RootStackParamList } from "../../types";
 
 type CartCardType = {
- navigation: any;
- data: ProductType;
- quantity: number;
-}
-export default function CartCard({ navigation, data, quantity }: CartCardType) {
+  data: ProductType;
+  quantity: number;
+};
+export default function CartCard({ data, quantity }: CartCardType) {
   const dispatch = useDispatch<Dispatch>();
+  const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
   const { id, productName, image_url, price } = data;
 
   return (
@@ -22,9 +24,13 @@ export default function CartCard({ navigation, data, quantity }: CartCardType) {
       <View style={{ flexDirection: "row", alignItems: "center" }}>
         <TouchableOpacity
           style={{ ...styles.photoContainer }}
-          onPress={() => navigation.push("Detail", { item: data })}
+          onPress={() => navigation.navigate("ProductDetail", { item: data })}
         >
-          <Image style={styles.photo} resizeMode="contain" source={{ uri: image_url }} />
+          <Image
+            style={styles.photo}
+            resizeMode="contain"
+            source={{ uri: image_url }}
+          />
         </TouchableOpacity>
         <View style={{ padding: 8, paddingLeft: 16 }}>
           <Text style={styles.name}>{productName}</Text>

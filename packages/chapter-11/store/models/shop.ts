@@ -2,7 +2,7 @@ import { createModel, RematchRootState } from "@rematch/core";
 
 import ApiClient from "../../utils/apiClient";
 import type { RootModel } from ".";
-import { ProductType } from "../../types";
+import type { ProductType } from "../../types";
 
 const api = new ApiClient();
 
