@@ -3,12 +3,18 @@ import { FontAwesome5 } from "@expo/vector-icons";
 import { useDispatch, useSelector } from "react-redux";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { ScrollView, StyleSheet, Dimensions, View, Text } from "react-native";
+import { StackNavigationProp } from "@react-navigation/stack";
 
 import CartCard from "../components/Cart/CartCard";
 import { Dispatch, store, RootState } from "../store"
 import { number } from "../utils/formatters"
+import { RootStackParamList } from "../types";
 
-function Cart({ navigation }: any) {
+type CartType = {
+  navigation: StackNavigationProp<RootStackParamList, 'Cart'>
+}
+
+const CartScreen = ({ navigation }: CartType) => {
   const dispatch = useDispatch<Dispatch>();
   const quantityById = useSelector(
     (rootState: RootState) => rootState.cart.quantityById
@@ -35,7 +41,7 @@ function Cart({ navigation }: any) {
       <ScrollView>
         {cartProducts.length ? (
           <View style={{ marginTop: 8, paddingBottom: 96 }}>
-            {cartProducts.map((item) => (
+            {cartProducts.map((item) => item && (
               <CartCard
                 data={item}
                 quantity={quantityById[item.id] || 0}
@@ -97,7 +103,12 @@ function Cart({ navigation }: any) {
             </TouchableOpacity>
           </View>
         ) : (
-          <Text>
+          <Text style={{
+            fontSize: 18,
+            color: "#FFFFFF",
+            textAlign: "center",
+            fontFamily: "Montserrat-SemiBold",
+          }}>
             No Items in cart
           </Text>
         )}
@@ -105,6 +116,8 @@ function Cart({ navigation }: any) {
     </View>
   );
 }
+
+export default CartScreen;
 
 const styles = StyleSheet.create({
   container: {
@@ -124,5 +137,3 @@ const styles = StyleSheet.create({
     fontFamily: "Montserrat-SemiBold",
   },
 });
-
-export default Cart;

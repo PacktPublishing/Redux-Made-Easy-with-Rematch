@@ -3,16 +3,18 @@ import { FontAwesome5 } from "@expo/vector-icons";
 import { Text, View, Image, StyleSheet, Pressable } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { useDispatch } from "react-redux";
+import { StackScreenProps } from "@react-navigation/stack";
 
 import { number } from "../utils/formatters"
 import { Dispatch } from "../store"
+import { RootStackParamList } from "../types";
 
-export default function ItemDetail({
+const ProductDetailScreen = ({
   navigation,
   route: {
     params: { item },
   },
-}: { route: any, navigation: any }) {
+}: StackScreenProps<RootStackParamList, 'ProductDetail'>) => {
   const dispatch = useDispatch<Dispatch>();
   const { id, productName, price, image_url, stock, productDescription } = item;
   return (
@@ -49,6 +51,8 @@ export default function ItemDetail({
     </View>
   );
 }
+
+export default ProductDetailScreen;
 
 const styles = StyleSheet.create({
   container: {

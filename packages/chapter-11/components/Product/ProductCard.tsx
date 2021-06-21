@@ -3,6 +3,7 @@ import { FontAwesome5 } from "@expo/vector-icons";
 import { Text, View, StyleSheet, Image } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { useDispatch } from "react-redux";
+import { useNavigation } from '@react-navigation/native';
 
 import { Dispatch } from "../../store";
 import { number } from "../../utils/formatters";
@@ -10,19 +11,19 @@ import type { ProductType } from "../../types";
 
 type ProductCardType = {
   data: ProductType
-  navigation: any
   quantity: number
 }
 
-export default function ProductCard({ data, navigation, quantity }: ProductCardType) {
+const ProductCard = ({ data, quantity }: ProductCardType) => {
   const { id, productName, price, stock, image_url, favorite } = data;
   const dispatch = useDispatch<Dispatch>();
+  const navigation = useNavigation();
 
   return (
     <View style={styles.container}>
       <TouchableOpacity
         onPress={() => {
-          navigation.navigate("ItemDetail", { item: data });
+          navigation.navigate("ProductDetail", { item: data });
         }}
       >
         <Image style={styles.photo} source={{ uri: image_url }} />
@@ -66,6 +67,8 @@ export default function ProductCard({ data, navigation, quantity }: ProductCardT
     </View>
   );
 }
+
+export default ProductCard;
 
 const styles = StyleSheet.create({
   container: {

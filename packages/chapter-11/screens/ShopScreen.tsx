@@ -9,13 +9,15 @@ import {
 import { TouchableOpacity } from "react-native-gesture-handler";
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { StackScreenProps } from "@react-navigation/stack";
 
 import TextField from "../components/TextField";
 import ProductCard from "../components/Product/ProductCard";
 import { Dispatch, RootState } from "../store";
 import { filterByName } from "../store/models/shop";
+import { RootStackParamList } from "../types";
 
-export default function ShopScreen({ navigation }: any) {
+const ShopScreen = ({ navigation }: StackScreenProps<RootStackParamList, 'Shop'>) => {
   const dispatch = useDispatch<Dispatch>();
   const loading = useSelector((rootState: RootState) => rootState.loading.models.shop)
   const query = useSelector((rootState: RootState) => rootState.shop.query);
@@ -76,7 +78,6 @@ export default function ShopScreen({ navigation }: any) {
                 <ProductCard
                   data={product}
                   quantity={quantityById[product.id] || 0}
-                  navigation={navigation}
                 />
               </View>
             ))}
@@ -127,3 +128,5 @@ const styles = StyleSheet.create({
     fontFamily: "Montserrat-SemiBold",
   },
 });
+
+export default ShopScreen;
