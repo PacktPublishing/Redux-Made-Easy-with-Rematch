@@ -15,8 +15,8 @@ export default function useCachedResources() {
         // Load fonts
         await Font.loadAsync({
           ...Ionicons.font,
-          "Montserrat-Regular": require("../assets/fonts/Montserrat-Regular.ttf"),
-          "Montserrat-SemiBold": require("../assets/fonts/Montserrat-SemiBold.ttf"),
+          Inter: require("../assets/fonts/Inter-Regular.ttf"),
+          InterSemiBold: require("../assets/fonts/Inter-SemiBold.ttf"),
         });
       } catch (e) {
         // We might want to provide this error information to an error reporting service

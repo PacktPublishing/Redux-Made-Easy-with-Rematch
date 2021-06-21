@@ -71,18 +71,18 @@ const styles = StyleSheet.create({
     fontSize: 16,
     paddingBottom: 4,
     maxWidth: 160,
-    fontFamily: "Montserrat-SemiBold",
+    fontFamily: "InterSemiBold",
   },
   count: {
     fontSize: 12,
     paddingLeft: 8,
     paddingRight: 8,
-    fontFamily: "Montserrat-SemiBold",
+    fontFamily: "InterSemiBold",
   },
   weight: {
     paddingLeft: 16,
     color: "#7a7a7a",
-    fontFamily: "Montserrat-Regular",
+    fontFamily: "Inter",
   },
   priceBox: {
     padding: 12,
@@ -94,7 +94,7 @@ const styles = StyleSheet.create({
   price: {
     minWidth: 24,
     paddingRight: 12,
-    fontFamily: "Montserrat-SemiBold",
+    fontFamily: "InterSemiBold",
   },
   cartCard: {
     padding: 8,

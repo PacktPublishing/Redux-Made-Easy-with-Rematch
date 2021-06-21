@@ -34,7 +34,7 @@ const ProductCard = ({ data, quantity }: ProductCardType) => {
             <Text style={styles.price}>{number(price)}</Text>
           </View>
           <Text style={styles.title}>{productName}</Text>
-          <Text style={styles.stock}>
+          <Text style={stock > 0 ? styles.stock : styles.nostock}>
             {stock > 0 ? "In stock" : "No stock"}
           </Text>
         </View>
@@ -101,7 +101,7 @@ const styles = StyleSheet.create({
     minWidth: 16,
     paddingRight: 4,
     color: "#424242",
-    fontFamily: "Montserrat-SemiBold",
+    fontFamily: "InterSemiBold",
   },
   photo: {
     width: "100%",
@@ -118,17 +118,22 @@ const styles = StyleSheet.create({
   price: {
     fontSize: 22,
     color: "#424242",
-    fontFamily: "Montserrat-SemiBold",
+    fontFamily: "InterSemiBold",
   },
   title: {
     fontSize: 12,
     color: "#424242",
-    fontFamily: "Montserrat-SemiBold",
+    fontFamily: "InterSemiBold",
   },
   stock: {
     fontSize: 10,
     color: "#424242",
-    fontFamily: "Montserrat-Regular",
+    fontFamily: "Inter",
+  },
+  nostock: {
+    fontSize: 10,
+    color: "red",
+    fontFamily: "Inter",
   },
   countIcon: {
     backgroundColor: "black",

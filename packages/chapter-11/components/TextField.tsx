@@ -61,6 +61,6 @@ const styles = StyleSheet.create({
     color: "#424242",
     paddingBottom: 10,
     alignSelf: "stretch",
-    fontFamily: "Montserrat-Regular",
+    fontFamily: "Inter",
   },
 });

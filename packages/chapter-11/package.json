@@ -5,6 +5,7 @@
   "scripts": {
     "start:api": "json-server --watch api/db.json --host 0.0.0.0 --port 8000",
     "postinstall": "expo-yarn-workspaces postinstall",
+    "tsc": "tsc --noEmit",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "start": "concurrently 'yarn start:api' 'expo start'",
     "android": "concurrently 'yarn start:api' 'expo start --android'",

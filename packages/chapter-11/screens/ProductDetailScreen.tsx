@@ -70,17 +70,17 @@ const styles = StyleSheet.create({
     fontSize: 34,
   },
   about: {
-    fontFamily: "Montserrat-SemiBold",
+    fontFamily: "InterSemiBold",
     fontSize: 18,
     marginTop: 32,
   },
   desc: {
-    fontFamily: "Montserrat-Regular",
+    fontFamily: "Inter",
     marginTop: 8,
     fontSize: 14,
   },
   title: {
-    fontFamily: "Montserrat-SemiBold",
+    fontFamily: "InterSemiBold",
     fontSize: 40,
   },
   priceWrapper: {
@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
   },
   price: {
     fontSize: 20,
-    fontFamily: "Montserrat-SemiBold",
+    fontFamily: "InterSemiBold",
   },
   addToCart: {
     alignItems: "center",
@@ -101,7 +101,7 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     elevation: 3,
     backgroundColor: "black",
-    fontFamily: "Montserrat-SemiBold",
+    fontFamily: "InterSemiBold",
   },
   addToCartText: {
     fontSize: 16,
@@ -112,7 +112,7 @@ const styles = StyleSheet.create({
   },
   weight: {
     fontSize: 16,
-    fontFamily: "Montserrat-Regular",
+    fontFamily: "Inter",
     paddingTop: 4,
   },
   box: {

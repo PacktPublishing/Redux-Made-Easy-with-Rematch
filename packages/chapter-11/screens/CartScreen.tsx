@@ -35,7 +35,6 @@ const CartScreen = ({ navigation }: CartType) => {
             size={24}
           />
         </TouchableOpacity>
-        <Text style={styles.heading}>Cart</Text>
         <View style={{ width: 45 }} />
       </View>
       <ScrollView>
@@ -48,7 +47,6 @@ const CartScreen = ({ navigation }: CartType) => {
                     data={item}
                     quantity={quantityById[item.id] || 0}
                     key={item.id}
-                    navigation={navigation}
                   />
                 )
             )}
@@ -65,7 +63,7 @@ const CartScreen = ({ navigation }: CartType) => {
                 style={{
                   fontSize: 24,
                   color: "#424242",
-                  fontFamily: "Montserrat-Regular",
+                  fontFamily: "Inter",
                 }}
               >
                 Total
@@ -75,7 +73,7 @@ const CartScreen = ({ navigation }: CartType) => {
                   style={{
                     fontSize: 24,
                     color: "#424242",
-                    fontFamily: "Montserrat-SemiBold",
+                    fontFamily: "InterSemiBold",
                   }}
                 >
                   {number(totalPrice)}
@@ -98,7 +96,7 @@ const CartScreen = ({ navigation }: CartType) => {
                   fontSize: 18,
                   color: "#FFFFFF",
                   textAlign: "center",
-                  fontFamily: "Montserrat-SemiBold",
+                  fontFamily: "InterSemiBold",
                 }}
               >
                 PLACE ORDER
@@ -109,12 +107,12 @@ const CartScreen = ({ navigation }: CartType) => {
           <Text
             style={{
               fontSize: 18,
-              color: "#FFFFFF",
+              color: "#424242",
               textAlign: "center",
-              fontFamily: "Montserrat-SemiBold",
+              fontFamily: "InterSemiBold",
             }}
           >
-            No Items in cart
+            Empty cart
           </Text>
         )}
       </ScrollView>
@@ -139,6 +137,6 @@ const styles = StyleSheet.create({
     fontSize: 24,
     color: "#424242",
     textAlign: "center",
-    fontFamily: "Montserrat-SemiBold",
+    fontFamily: "InterSemiBold",
   },
 });

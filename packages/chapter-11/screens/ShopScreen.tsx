@@ -54,7 +54,7 @@ const ShopScreen = ({
           ) : null}
         </View>
       </View>
-      <TextField value={query} placeholder="Search" />
+      <TextField value={query} />
       {loading ? (
         <ActivityIndicator size="large" color="#424242" />
       ) : (
@@ -108,7 +108,7 @@ const styles = StyleSheet.create({
     fontSize: 10,
     width: "auto",
     color: "white",
-    fontFamily: "Montserrat-SemiBold",
+    fontFamily: "InterSemiBold",
   },
   badge: {
     top: -10,
@@ -126,7 +126,7 @@ const styles = StyleSheet.create({
     fontSize: 24,
     color: "#424242",
     textAlign: "center",
-    fontFamily: "Montserrat-SemiBold",
+    fontFamily: "InterSemiBold",
   },
 });
 
