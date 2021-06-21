@@ -14,6 +14,7 @@ export default function TextField({ value = "" }: { value: string | boolean }) {
         <TextInput
           value={!value ? "" : value.toString()}
           style={styles.input}
+          placeholderTextColor="#424242"
           placeholder="Query any product by their name"
           onChangeText={(text: string) => dispatch.shop.SET_QUERY(text)}
           underlineColorAndroid="transparent"
