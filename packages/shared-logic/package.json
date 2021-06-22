@@ -33,6 +33,7 @@
     "@rematch/loading": "^2.0.1",
     "redux": "^4.1.0",
     "prop-types": "^15.7.2",
+    "msw": "^0.29.0",
     "tsdx": "^0.14.1",
     "tslib": "^2.2.0",
     "typescript": "^4.3.2"

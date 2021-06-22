@@ -1,5 +1,7 @@
-import { store, dispatch } from "../index";
+import { store as lazyStore } from "../index";
 
+const store = lazyStore();
+const { dispatch } = store;
 const getCart = () => store.getState().cart;
 
 describe("Cart model", () => {

@@ -1,6 +1,8 @@
-import { store, dispatch } from "../index";
+import { store as lazyStore } from "../index";
 import { filterByName } from "./shop";
 
+const store = lazyStore();
+const { dispatch } = store;
 const getShop = () => store.getState().shop;
 
 describe("Shop model", () => {
