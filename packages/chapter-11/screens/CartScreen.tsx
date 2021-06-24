@@ -39,34 +39,10 @@ const CartScreen = ({ navigation }: CartType) => {
                   />
                 )
             )}
-            <View
-              style={{
-                padding: 16,
-                paddingVertical: 24,
-                minWidth: "100%",
-                flexDirection: "row",
-                justifyContent: "space-between",
-              }}
-            >
-              <Text
-                style={{
-                  fontSize: 24,
-                  color: "#424242",
-                  fontFamily: "Inter",
-                }}
-              >
-                Total
-              </Text>
-              <View style={{ flexDirection: "row", alignContent: "center" }}>
-                <Text
-                  style={{
-                    fontSize: 24,
-                    color: "#424242",
-                    fontFamily: "InterSemiBold",
-                  }}
-                >
-                  {number(totalPrice)}
-                </Text>
+            <View style={styles.totalContainer}>
+              <Text style={styles.totalText}>Total</Text>
+              <View style={styles.flex}>
+                <Text style={styles.totalPriceText}>{number(totalPrice)}</Text>
               </View>
             </View>
             <TouchableOpacity
@@ -74,35 +50,13 @@ const CartScreen = ({ navigation }: CartType) => {
                 dispatch.cart.RESTORE_CART();
                 navigation.navigate("Shop");
               }}
-              style={{
-                backgroundColor: "#424242",
-                borderRadius: 16,
-                padding: 16,
-              }}
+              style={styles.placeOrderTouchable}
             >
-              <Text
-                style={{
-                  fontSize: 18,
-                  color: "#FFFFFF",
-                  textAlign: "center",
-                  fontFamily: "InterSemiBold",
-                }}
-              >
-                PLACE ORDER
-              </Text>
+              <Text style={styles.placeOrderText}>PLACE ORDER</Text>
             </TouchableOpacity>
           </View>
         ) : (
-          <Text
-            style={{
-              fontSize: 18,
-              color: "#424242",
-              textAlign: "center",
-              fontFamily: "InterSemiBold",
-            }}
-          >
-            Empty cart
-          </Text>
+          <Text style={styles.emptyCartText}>Empty cart</Text>
         )}
       </ScrollView>
     </View>
@@ -125,6 +79,44 @@ const styles = StyleSheet.create({
   },
   heading: {
     fontSize: 24,
+    color: "#424242",
+    textAlign: "center",
+    fontFamily: "InterSemiBold",
+  },
+  totalContainer: {
+    padding: 16,
+    paddingVertical: 24,
+    minWidth: "100%",
+    flexDirection: "row",
+    justifyContent: "space-between",
+  },
+  totalText: {
+    fontSize: 24,
+    color: "#424242",
+    fontFamily: "Inter",
+  },
+  flex: {
+    flexDirection: "row",
+    alignContent: "center",
+  },
+  totalPriceText: {
+    fontSize: 24,
+    color: "#424242",
+    fontFamily: "InterSemiBold",
+  },
+  placeOrderTouchable: {
+    backgroundColor: "#424242",
+    borderRadius: 16,
+    padding: 16,
+  },
+  placeOrderText: {
+    fontSize: 18,
+    color: "#FFFFFF",
+    textAlign: "center",
+    fontFamily: "InterSemiBold",
+  },
+  emptyCartText: {
+    fontSize: 18,
     color: "#424242",
     textAlign: "center",
     fontFamily: "InterSemiBold",
