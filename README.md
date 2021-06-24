@@ -41,6 +41,9 @@ This book is for React and Redux users looking for better alternatives for Redux
 ### Diving deeper into Rematch
 - [Chapter 9: Rematch Plugin written from scratch with Tsdx and TypeScript](/packages/chapter-9)
 - [Chapter 10: Amazhop website rewriten to TypeScript with Rematch TypeScript](/packages/chapter-10)
+- Chapter 11: Amazhop React Native + Expo application with the same business logic of our website using Yarn Workspaces:
+  - [React Native Application](/packages/chapter-11)
+  - [Distributable Business logic](/packages/shared-logic)
 
 
 ## How to run any chapter code?
@@ -63,9 +66,9 @@ The [start.sh](/start.sh) script accepts two arguments:
 
 For ex:
 ```sh
-# start dev environment chapter-6
+# Will start the development server of chapter 6 code
 ./start.sh chapter-6 dev
-# or build chapter-5
+# or will build the chapter 5 code
 ./start.sh chapter-5 build
 ```
 
