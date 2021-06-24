@@ -5,7 +5,7 @@ import { ScrollView, StyleSheet, Dimensions, View, Text } from "react-native";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { Dispatch, RootState } from "@amazhop/logic";
 
-import { lazyStore } from "../App.js";
+import { lazyStore } from "../App";
 import CartCard from "../components/Cart/CartCard";
 import { number } from "../utils/formatters";
 import { RootStackParamList } from "../types";

@@ -52,6 +52,7 @@ module.exports = {
     "prettier/prettier": "error",
     "import/prefer-default-export": "off",
     "react/prop-types": "off",
+    "import/extensions": "warn",
     "react/display-name": "off",
     "linebreak-style": ["error", "unix"],
     quotes: ["error", "double"],

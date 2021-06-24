@@ -19,14 +19,15 @@
   "author": "Sergio Moreno",
   "license": "ISC",
   "peerDependencies": {
-    "redaxios": ">0.4.1",
-    "@rematch/core": "^2",
-    "@rematch/select": "^3",
-    "@rematch/loading": "^2",
-    "@rematch/immer": "^2",
-    "redux": "^4"
+    "redaxios": ">=0.4",
+    "@rematch/core": ">=2",
+    "@rematch/select": ">=3",
+    "@rematch/loading": ">=2",
+    "@rematch/immer": ">=2",
+    "redux": ">=4"
   },
   "devDependencies": {
+    "redaxios": "^0.4.1",
     "@rematch/core": "^2.0.1",
     "@rematch/select": "^3.0.1",
     "@rematch/immer": "^2.0.1",
