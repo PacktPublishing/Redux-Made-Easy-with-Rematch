@@ -8,6 +8,8 @@ import { store } from "@amazhop/logic";
 import useCachedResources from "./hooks/useCachedResources";
 import Navigation from "./navigation";
 
+export const lazyStore = store();
+
 export default function App() {
   const isLoadingComplete = useCachedResources();
 
@@ -16,7 +18,7 @@ export default function App() {
   }
   return (
     <SafeAreaProvider>
-      <Provider store={store}>
+      <Provider store={lazyStore}>
         <Navigation />
         <StatusBar />
       </Provider>

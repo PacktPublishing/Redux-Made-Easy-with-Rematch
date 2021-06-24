@@ -8,9 +8,13 @@ import { filterByName } from "./models/shop";
 
 type FullModel = ExtraModelsFromLoading<RootModel>;
 
-export const store = <R extends RootModel, M extends FullModel>({
+type LazyInitWithPlugins<R extends RootModel, M  extends FullModel> = {
+  extraPlugins?: Array<Plugin<R, M>>
+}
+
+export const store = ({
   extraPlugins = []
-}: { extraPlugins?: Array<Plugin<R, M>> } = {}) => init<RootModel, FullModel>({
+}: LazyInitWithPlugins<RootModel, FullModel> = {}) => init<RootModel, FullModel>({
   models: { shop, cart },
   redux: {
     rootReducers: {
@@ -29,4 +33,4 @@ export const store = <R extends RootModel, M extends FullModel>({
 export type Dispatch = RematchDispatch<RootModel>;
 export type RootState = RematchRootState<RootModel, FullModel>;
 
-export { filterByName }
+export { filterByName, FullModel, RootModel }

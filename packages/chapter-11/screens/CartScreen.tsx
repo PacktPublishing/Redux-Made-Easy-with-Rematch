@@ -3,8 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { ScrollView, StyleSheet, Dimensions, View, Text } from "react-native";
 import { StackNavigationProp } from "@react-navigation/stack";
-import { Dispatch, store, RootState } from "@amazhop/logic";
+import { Dispatch, RootState } from "@amazhop/logic";
 
+import { lazyStore } from "../App.js";
 import CartCard from "../components/Cart/CartCard";
 import { number } from "../utils/formatters";
 import { RootStackParamList } from "../types";
@@ -18,8 +19,8 @@ const CartScreen = ({ navigation }: CartType) => {
   const quantityById = useSelector(
     (rootState: RootState) => rootState.cart.quantityById
   );
-  const cartProducts = useSelector(store.select.cart.getCartProducts);
-  const totalPrice = useSelector(store.select.cart.total);
+  const cartProducts = useSelector(lazyStore.select.cart.getCartProducts);
+  const totalPrice = useSelector(lazyStore.select.cart.total);
 
   const windowHeight = Dimensions.get("window").height;
 
