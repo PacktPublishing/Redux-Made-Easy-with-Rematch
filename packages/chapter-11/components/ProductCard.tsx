@@ -7,8 +7,8 @@ import { useNavigation } from "@react-navigation/native";
 
 import type { Dispatch } from "@amazhop/logic";
 
-import { number } from "../../utils/formatters";
-import type { ProductType } from "../../types";
+import { number } from "../utils/formatters";
+import type { ProductType } from "../types";
 
 type ProductCardType = {
   data: ProductType;

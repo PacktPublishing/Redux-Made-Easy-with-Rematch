@@ -7,7 +7,7 @@ import { StackScreenProps } from "@react-navigation/stack";
 import { Dispatch, RootState, filterByName } from "@amazhop/logic";
 
 import TextField from "../components/TextField";
-import ProductCard from "../components/Product/ProductCard";
+import ProductCard from "../components/ProductCard";
 import { RootStackParamList } from "../types";
 
 const ShopScreen = ({
