@@ -1,11 +1,17 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { TouchableOpacity } from "react-native-gesture-handler";
-import { ScrollView, StyleSheet, Dimensions, View, Text } from "react-native";
+import {
+  StyleSheet,
+  Dimensions,
+  View,
+  Text,
+  FlatList,
+  Pressable,
+} from "react-native";
 import { StackNavigationProp } from "@react-navigation/stack";
-import { Dispatch, RootState } from "@amazhop/logic";
 
-import { lazyStore } from "../App";
+import { Dispatch, RootState, ProductType } from "@amazhop/logic";
+import { store } from "../App";
 import CartCard from "../components/CartCard";
 import { number } from "../utils/formatters";
 import { RootStackParamList } from "../types";
@@ -15,50 +21,50 @@ type CartType = {
 };
 
 const CartScreen = ({ navigation }: CartType) => {
+  const windowHeight = Dimensions.get("window").height;
   const dispatch = useDispatch<Dispatch>();
   const quantityById = useSelector(
     (rootState: RootState) => rootState.cart.quantityById
   );
-  const cartProducts = useSelector(lazyStore.select.cart.getCartProducts);
-  const totalPrice = useSelector(lazyStore.select.cart.total);
-
-  const windowHeight = Dimensions.get("window").height;
+  const cartProducts = useSelector(store.select.cart.getCartProducts);
+  const totalPrice = useSelector(store.select.cart.total);
 
   return (
     <View style={{ ...styles.container, minHeight: windowHeight }}>
-      <ScrollView>
-        {cartProducts.length ? (
-          <View style={{ marginTop: 8, paddingBottom: 96 }}>
-            {cartProducts.map(
-              (item) =>
-                item && (
-                  <CartCard
-                    data={item}
-                    quantity={quantityById[item.id] || 0}
-                    key={item.id}
-                  />
-                )
-            )}
-            <View style={styles.totalContainer}>
-              <Text style={styles.totalText}>Total</Text>
-              <View style={styles.flex}>
-                <Text style={styles.totalPriceText}>{number(totalPrice)}</Text>
+      {cartProducts.length ? (
+        <View style={{ maxHeight: windowHeight - 200 }}>
+          <FlatList
+            data={cartProducts as ProductType[]}
+            keyExtractor={(i) => i.id}
+            renderItem={({ item }) => (
+              <View>
+                <CartCard
+                  data={item}
+                  quantity={quantityById[item.id] || 0}
+                  key={item.id}
+                />
               </View>
+            )}
+          />
+          <View style={styles.totalContainer}>
+            <Text style={styles.totalText}>Total</Text>
+            <View style={styles.flex}>
+              <Text style={styles.totalPriceText}>{number(totalPrice)}</Text>
             </View>
-            <TouchableOpacity
-              onPress={() => {
-                dispatch.cart.RESTORE_CART();
-                navigation.navigate("Shop");
-              }}
-              style={styles.placeOrderTouchable}
-            >
-              <Text style={styles.placeOrderText}>PLACE ORDER</Text>
-            </TouchableOpacity>
           </View>
-        ) : (
-          <Text style={styles.emptyCartText}>Empty cart</Text>
-        )}
-      </ScrollView>
+          <Pressable
+            onPress={() => {
+              dispatch.cart.RESTORE_CART();
+              navigation.navigate("Shop");
+            }}
+            style={styles.placeOrderTouchable}
+          >
+            <Text style={styles.placeOrderText}>PLACE ORDER</Text>
+          </Pressable>
+        </View>
+      ) : (
+        <Text style={styles.emptyCartText}>Empty cart</Text>
+      )}
     </View>
   );
 };
@@ -105,7 +111,7 @@ const styles = StyleSheet.create({
     fontFamily: "InterSemiBold",
   },
   placeOrderTouchable: {
-    backgroundColor: "#424242",
+    backgroundColor: "black",
     borderRadius: 16,
     padding: 16,
   },

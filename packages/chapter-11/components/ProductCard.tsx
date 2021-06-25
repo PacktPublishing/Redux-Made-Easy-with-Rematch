@@ -1,7 +1,6 @@
 import React from "react";
 import { FontAwesome5 } from "@expo/vector-icons";
-import { Text, View, StyleSheet, Image } from "react-native";
-import { TouchableOpacity } from "react-native-gesture-handler";
+import { Text, View, StyleSheet, Image, Pressable } from "react-native";
 import { useDispatch } from "react-redux";
 import { useNavigation } from "@react-navigation/native";
 
@@ -22,13 +21,11 @@ const ProductCard = ({ data, quantity }: ProductCardType) => {
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity
-        onPress={() => {
-          navigation.navigate("ProductDetail", { item: data });
-        }}
+      <Pressable
+        onPress={() => navigation.navigate("ProductDetail", { item: data })}
       >
         <Image style={styles.photo} source={{ uri: image_url }} />
-      </TouchableOpacity>
+      </Pressable>
       <View style={styles.content}>
         <View>
           <View style={styles.priceWrapper}>
@@ -44,7 +41,7 @@ const ProductCard = ({ data, quantity }: ProductCardType) => {
             <Text style={styles.count}>{quantity}</Text>
           </View>
           <View>
-            <TouchableOpacity
+            <Pressable
               disabled={stock === 0}
               style={
                 stock === 0
@@ -54,8 +51,8 @@ const ProductCard = ({ data, quantity }: ProductCardType) => {
               onPress={() => dispatch.cart.ADD_TO_CART({ id })}
             >
               <FontAwesome5 name="plus" size={12} color="#FFFFFF" />
-            </TouchableOpacity>
-            <TouchableOpacity
+            </Pressable>
+            <Pressable
               disabled={stock === 0}
               style={
                 stock === 0
@@ -69,13 +66,13 @@ const ProductCard = ({ data, quantity }: ProductCardType) => {
               onPress={() => dispatch.cart.REMOVE_FROM_CART({ id })}
             >
               <FontAwesome5 name="minus" size={12} color="#FFFFFF" />
-            </TouchableOpacity>
+            </Pressable>
           </View>
         </View>
         <View>
-          <TouchableOpacity onPress={() => dispatch.shop.setToFavorite({ id })}>
+          <Pressable onPress={() => dispatch.shop.setToFavorite({ id })}>
             <FontAwesome5 name="heart" size={24} color="red" solid={favorite} />
-          </TouchableOpacity>
+          </Pressable>
         </View>
       </View>
     </View>

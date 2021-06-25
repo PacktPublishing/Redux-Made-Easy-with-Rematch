@@ -1,6 +1,5 @@
 import { FontAwesome5 } from "@expo/vector-icons";
-import { View, Text, StyleSheet, FlatList } from "react-native";
-import { TouchableOpacity } from "react-native-gesture-handler";
+import { View, Text, StyleSheet, FlatList, Pressable } from "react-native";
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { StackScreenProps } from "@react-navigation/stack";
@@ -34,9 +33,9 @@ const ShopScreen = ({
       <View style={styles.topBar}>
         <Text style={styles.heading}>Amazhop</Text>
         <View>
-          <TouchableOpacity onPress={() => navigation.navigate("Cart")}>
+          <Pressable onPress={() => navigation.navigate("Cart")}>
             <FontAwesome5 name="shopping-basket" size={24} color="#424242" />
-          </TouchableOpacity>
+          </Pressable>
           {totalCartProducts > 0 ? (
             <View style={styles.badge}>
               <Text style={styles.cartCount}>{totalCartProducts}</Text>

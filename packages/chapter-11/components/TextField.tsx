@@ -1,7 +1,6 @@
 import React from "react";
 import { FontAwesome5 } from "@expo/vector-icons";
-import { View, StyleSheet, TextInput } from "react-native";
-import { TouchableOpacity } from "react-native-gesture-handler";
+import { View, StyleSheet, TextInput, Pressable } from "react-native";
 import { useDispatch } from "react-redux";
 import type { Dispatch } from "@amazhop/logic";
 
@@ -20,9 +19,9 @@ export default function TextField({ value = "" }: { value: string | boolean }) {
           underlineColorAndroid="transparent"
         />
         {!!value && (
-          <TouchableOpacity onPress={() => dispatch.shop.SET_QUERY(false)}>
+          <Pressable onPress={() => dispatch.shop.SET_QUERY(false)}>
             <FontAwesome5 name="times" size={18} color="#655DB0" />
-          </TouchableOpacity>
+          </Pressable>
         )}
       </View>
     </View>

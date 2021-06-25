@@ -1,7 +1,6 @@
 import React from "react";
 import { FontAwesome5 } from "@expo/vector-icons";
-import { StyleSheet, Image, View, Text } from "react-native";
-import { TouchableOpacity } from "react-native-gesture-handler";
+import { StyleSheet, Image, View, Text, Pressable } from "react-native";
 import { useDispatch } from "react-redux";
 import { useNavigation } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
@@ -22,7 +21,7 @@ export default function CartCard({ data, quantity }: CartCardType) {
   return (
     <View style={styles.cartCard}>
       <View style={{ flexDirection: "row", alignItems: "center" }}>
-        <TouchableOpacity
+        <Pressable
           style={{ ...styles.photoContainer }}
           onPress={() => navigation.navigate("ProductDetail", { item: data })}
         >
@@ -31,23 +30,23 @@ export default function CartCard({ data, quantity }: CartCardType) {
             resizeMode="contain"
             source={{ uri: image_url }}
           />
-        </TouchableOpacity>
+        </Pressable>
         <View style={{ padding: 8, paddingLeft: 16 }}>
           <Text style={styles.name}>{productName}</Text>
           <View style={styles.countIconBox}>
-            <TouchableOpacity
+            <Pressable
               style={styles.countIcon}
               onPress={() => dispatch.cart.ADD_TO_CART({ id })}
             >
               <FontAwesome5 name="plus" size={12} color="#FFFFFF" />
-            </TouchableOpacity>
+            </Pressable>
             <Text style={styles.count}>{quantity}</Text>
-            <TouchableOpacity
+            <Pressable
               style={styles.countIcon}
               onPress={() => dispatch.cart.REMOVE_FROM_CART({ id })}
             >
               <FontAwesome5 name="minus" size={12} color="#FFFFFF" />
-            </TouchableOpacity>
+            </Pressable>
           </View>
         </View>
       </View>
