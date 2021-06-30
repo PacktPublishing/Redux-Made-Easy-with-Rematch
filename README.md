@@ -44,6 +44,7 @@ This book is for React and Redux users looking for better alternatives for Redux
 - Chapter 11: Amazhop React Native + Expo application with the same business logic of our website using Yarn Workspaces:
   - [React Native Application](/packages/chapter-11)
   - [Distributable Business logic](/packages/shared-logic)
+- [Chapter 12: Amazhop website with best practices and performance improvements](/packages/chapter-12)
 
 
 ## How to run any chapter code?
