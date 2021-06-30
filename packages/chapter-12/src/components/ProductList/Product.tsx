@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo, memo } from "react";
 import clsx from "clsx";
 import { dispatch } from "../../store";
 import { number } from "../../utils/formatters";
@@ -15,8 +15,8 @@ export type ProductType = {
 type ProductProps = {
   product: ProductType;
 };
-export const Product = ({ product }: ProductProps) => {
-  const hasStock = product.stock > 0;
+export const Product = memo(({ product }: ProductProps) => {
+  const hasStock = useMemo(() => product.stock > 0, [product]);
   return (
     <div
       role="listitem"
@@ -76,4 +76,4 @@ export const Product = ({ product }: ProductProps) => {
       </div>
     </div>
   );
-};
+});
