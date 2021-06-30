@@ -1,10 +1,19 @@
-import React, { useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { useDispatch } from "react-redux";
+import debounce from "lodash.debounce";
 import type { Dispatch } from "../store";
 
 export const Header = () => {
   const dispatch = useDispatch<Dispatch>();
   const [value, setValue] = useState("");
+  const debouncedDispatch = useMemo(
+    () => debounce(dispatch.shop.SET_QUERY, 300),
+    [dispatch]
+  );
+
+  useEffect(() => {
+    debouncedDispatch(value !== "" && value);
+  }, [value, debouncedDispatch]);
 
   return (
     <div className="grid grid-cols-0/5 grid-rows-1 bg-gray-900 p-3 gap-3 items-center fixed w-full z-10">
