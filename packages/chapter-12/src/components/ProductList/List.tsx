@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import useInfiniteScroll from "react-infinite-scroll-hook";
+import { filterByName } from "@amazhop/logic";
 
 import { dispatch } from "../../store";
 import { Product } from "./Product";
 import { Spinner } from "../Spinner";
-import { filterByName } from "../../store/models/shop";
 
 import type { RootState } from "../../store";
 

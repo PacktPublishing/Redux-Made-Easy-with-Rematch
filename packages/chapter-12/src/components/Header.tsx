@@ -14,7 +14,6 @@ export const Header = () => {
   useEffect(() => {
     debouncedDispatch(value !== "" && value);
   }, [value, debouncedDispatch]);
-
   return (
     <div className="grid grid-cols-0/5 grid-rows-1 bg-gray-900 p-3 gap-3 items-center fixed w-full z-10">
       <h1 className="text-white text-3xl font-extrabold tracking-tight underline">
@@ -39,11 +38,6 @@ export const Header = () => {
         </span>
         <input
           onChange={(e) => setValue(e.target.value)}
-          onKeyPress={(e) => {
-            if (e.key === "Enter") {
-              dispatch.shop.SET_QUERY(value !== "" && value);
-            }
-          }}
           value={value}
           type="text"
           className="p-2 rounded-md w-full"

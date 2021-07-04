@@ -17,6 +17,7 @@
     "serve": "concurrently 'yarn start:api' 'vite preview'"
   },
   "dependencies": {
+    "@amazhop/logic": "^1.0.0",
     "@rematch/core": "^2.0.1",
     "@rematch/immer": "^2.0.1",
     "@rematch/loading": "^2.0.1",
