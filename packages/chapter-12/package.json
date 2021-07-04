@@ -17,6 +17,7 @@
     "serve": "concurrently 'yarn start:api' 'vite preview'"
   },
   "dependencies": {
+    "@amazhop/logic": "^1.0.0",
     "@rematch/core": "^2.0.1",
     "@rematch/immer": "^2.0.1",
     "@rematch/loading": "^2.0.1",
@@ -24,6 +25,7 @@
     "@rematch/select": "^3.0.1",
     "clsx": "^1.1.1",
     "immer": "^9.0.2",
+    "lodash.debounce": "^4.0.8",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-infinite-scroll-hook": "^4.0.1",
@@ -38,6 +40,7 @@
     "@testing-library/jest-dom": "^5.11.10",
     "@testing-library/react": "^11.2.6",
     "@testing-library/user-event": "^13.1.5",
+    "@types/lodash.debounce": "^4.0.6",
     "@types/react": "^17.0.9",
     "@types/react-dom": "^17.0.6",
     "@typescript-eslint/eslint-plugin": "^4.26.1",

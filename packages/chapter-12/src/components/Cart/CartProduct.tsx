@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { dispatch } from "../../store";
 import { number } from "../../utils/formatters";
 import type { ProductType } from "../ProductList/Product";
@@ -7,7 +7,7 @@ type CartProductProps = {
   product: ProductType;
   quantity: number;
 };
-export const CartProduct = ({ product, quantity }: CartProductProps) => (
+export const CartProduct = memo(({ product, quantity }: CartProductProps) => (
   <article role="listitem" className="p-4 flex space-x-4">
     <img
       src={product.image_url}
@@ -72,4 +72,4 @@ export const CartProduct = ({ product, quantity }: CartProductProps) => (
       </button>
     </div>
   </article>
-);
+));
