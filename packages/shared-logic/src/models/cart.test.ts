@@ -1,4 +1,4 @@
-import { store as lazyStore } from "../index";
+import { lazyStore } from "../index";
 
 const store = lazyStore();
 const { dispatch } = store;

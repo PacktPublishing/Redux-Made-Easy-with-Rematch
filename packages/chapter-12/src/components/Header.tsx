@@ -38,6 +38,11 @@ export const Header = () => {
         </span>
         <input
           onChange={(e) => setValue(e.target.value)}
+          onKeyPress={(e) => {
+            if (e.key === "Enter") {
+              dispatch.shop.SET_QUERY(value !== "" && value);
+            }
+          }}
           value={value}
           type="text"
           className="p-2 rounded-md w-full"

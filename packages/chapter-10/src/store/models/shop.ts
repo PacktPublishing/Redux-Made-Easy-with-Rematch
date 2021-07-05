@@ -64,7 +64,7 @@ export const shop = createModel<RootModel>()({
         _limit: 10,
       });
       const totalCount = parseInt((headers as any).get("x-total-count"), 10);
-      this.SET_PRODUCTS({ products: data, totalCount });
+      dispatch.shop.SET_PRODUCTS({ products: data, totalCount });
     },
     async setToFavorite({ id }: { id: string }, rootState) {
       const productIndex = rootState.shop.products.findIndex(

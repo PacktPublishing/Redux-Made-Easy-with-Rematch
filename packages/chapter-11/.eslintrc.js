@@ -38,6 +38,7 @@ module.exports = {
     "jest-dom",
   ],
   rules: {
+    "import/no-cycle": "warn",
     "@typescript-eslint/no-use-before-define": "off",
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "@typescript-eslint/naming-convention": "off",

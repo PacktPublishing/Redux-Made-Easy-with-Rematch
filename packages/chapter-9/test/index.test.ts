@@ -79,13 +79,13 @@ describe("Rematch Plugin Typed State", () => {
       },
     };
 
-    const { dispatch, addModel } = init({
+    const store = init({
       models: {},
       plugins: [createTypedStatePlugin()],
     });
 
-    addModel(user);
-    dispatch.user.update({ name: undefined, age: 26 });
+    store.addModel(user);
+    store.dispatch.user.update({ name: undefined, age: 26 });
     expect(globalThis.console.warn).toHaveBeenCalledTimes(1);
     expect(globalThis.console.warn).toHaveBeenCalledWith(
       "[Rematch]: The property `name` is marked as required in `user`, but its value is `undefined`."

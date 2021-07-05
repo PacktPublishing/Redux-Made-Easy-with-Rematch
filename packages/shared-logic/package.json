@@ -10,6 +10,7 @@
     "src"
   ],
   "scripts": {
+    "types": "tsc --noEmit -p tsconfig.json",
     "postinstall": "yarn build",
     "start": "tsdx watch",
     "build": "tsdx build",

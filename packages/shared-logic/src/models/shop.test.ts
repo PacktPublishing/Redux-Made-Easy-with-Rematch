@@ -1,4 +1,4 @@
-import { store as lazyStore } from "../index";
+import { lazyStore } from "../index";
 import { filterByName } from "./shop";
 
 const store = lazyStore();

@@ -8,13 +8,18 @@
   "license": "MIT",
   "scripts": {
     "postinstall": "patch-package",
-    "start": "./start.sh"
+    "start": "./start.sh",
+    "build": "lerna run build --parallel",
+    "test": "lerna run test --parallel",
+    "tsc": "lerna run tsc --parallel",
+    "lint": "lerna run lint --parallel"
   },
   "workspaces": [
     "packages/**"
   ],
   "devDependencies": {
     "patch-package": "^6.4.7",
+    "lerna": "^4.0.0",
     "postinstall-postinstall": "^2.1.0"
   }
 }
