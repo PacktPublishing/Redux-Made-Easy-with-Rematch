@@ -1,0 +1,65 @@
+diff --git a/node_modules/esbuild-jest/esbuild-jest.es.js b/node_modules/esbuild-jest/esbuild-jest.es.js
+index 140e050..064d273 100644
+--- a/node_modules/esbuild-jest/esbuild-jest.es.js
++++ b/node_modules/esbuild-jest/esbuild-jest.es.js
+@@ -36,7 +36,7 @@ const createTransformer = (options)=>({
+             /// this will support the jest.mock
+             /// https://github.com/aelbore/esbuild-jest/issues/12
+             /// TODO: transform the jest.mock to a function using babel traverse/parse then hoist it
+-            if (sources.code.indexOf("ock(") >= 0 || (opts === null || opts === void 0 ? void 0 : opts.instrument)) {
++            if (sources.code.indexOf("jest.mock(") >= 0) {
+                 const source = require('./transformer').babelTransform({
+                     sourceText: content,
+                     sourcePath: filename,
+diff --git a/node_modules/esbuild-jest/esbuild-jest.js b/node_modules/esbuild-jest/esbuild-jest.js
+index 82ddd86..db8515e 100644
+--- a/node_modules/esbuild-jest/esbuild-jest.js
++++ b/node_modules/esbuild-jest/esbuild-jest.js
+@@ -42,7 +42,7 @@ const createTransformer = (options)=>({
+             /// this will support the jest.mock
+             /// https://github.com/aelbore/esbuild-jest/issues/12
+             /// TODO: transform the jest.mock to a function using babel traverse/parse then hoist it
+-            if (sources.code.indexOf("ock(") >= 0 || (opts === null || opts === void 0 ? void 0 : opts.instrument)) {
++            if (sources.code.indexOf("jest.mock(") >= 0) {
+                 const source = require('./transformer').babelTransform({
+                     sourceText: content,
+                     sourcePath: filename,
+diff --git a/node_modules/esbuild-jest/package.json b/node_modules/esbuild-jest/package.json
+index c0d3047..dec83b7 100644
+--- a/node_modules/esbuild-jest/package.json
++++ b/node_modules/esbuild-jest/package.json
+@@ -24,7 +24,9 @@
+     "esbuild": ">=0.8.50"
+   },
+   "dependencies": {
+-    "@babel/core": "^7.12.17",
++    "@babel/core": "^7.14.0",
++    "@babel/preset-env": "^7.14.1",
++    "@babel/preset-react": "^7.13.13",
+     "@babel/plugin-transform-modules-commonjs": "^7.12.13",
+     "babel-jest": "^26.6.3"
+   },
+diff --git a/node_modules/esbuild-jest/transformer.js b/node_modules/esbuild-jest/transformer.js
+index 771e3d1..b529958 100644
+--- a/node_modules/esbuild-jest/transformer.js
++++ b/node_modules/esbuild-jest/transformer.js
+@@ -9,15 +9,10 @@ function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'defau
+ var babelJest__default = /*#__PURE__*/_interopDefaultLegacy(babelJest);
+ 
+ const { process  } = babelJest__default['default'].createTransformer({
+-    plugins: [
+-        "@babel/plugin-transform-modules-commonjs"
+-    ],
+-    parserOpts: {
+-        plugins: [
+-            "jsx",
+-            "typescript"
+-        ]
+-    }
++    presets: [
++        ['@babel/preset-env', {targets: {node: 'current'}}],
++        "@babel/preset-react"
++    ]
+ });
+ function babelTransform(opts) {
+     const { sourceText , sourcePath , config , options  } = opts;

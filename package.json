@@ -7,9 +7,14 @@
   "author": "Sergio Moreno <sergiomorenoalbert@gmail.com>",
   "license": "MIT",
   "scripts": {
+    "postinstall": "patch-package",
     "start": "./start.sh"
   },
   "workspaces": [
     "packages/**"
-  ]
+  ],
+  "devDependencies": {
+    "patch-package": "^6.4.7",
+    "postinstall-postinstall": "^2.1.0"
+  }
 }
