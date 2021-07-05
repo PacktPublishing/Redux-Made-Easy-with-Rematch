@@ -9,7 +9,7 @@
   "scripts": {
     "postinstall": "patch-package",
     "start": "./start.sh",
-    "build": "lerna run build --parallel",
+    "build": "lerna run build",
     "test": "lerna run test --parallel",
     "tsc": "lerna run tsc --parallel",
     "lint": "lerna run lint --parallel"

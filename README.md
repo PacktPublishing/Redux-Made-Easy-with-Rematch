@@ -4,6 +4,7 @@
 
 ### [🌎 Official website](https://rematchjs.org)
 ### [🛍️ Amazon link](https://www.amazon.com/Redux-made-easy-Rematch-boilerplate-ebook/dp/B092RFFGNS)
+### [![Rematch Book Continuous Integration](https://github.com/PacktPublishing/Redux-Made-Easy-with-Rematch/actions/workflows/main_ci.yml/badge.svg)](https://github.com/PacktPublishing/Redux-Made-Easy-with-Rematch/actions/workflows/main_ci.yml)
 
 ## What's this book about
 
@@ -55,9 +56,13 @@ Make to have installed [`yarn`](https://classic.yarnpkg.com/lang/en/)
 yarn install
 ```
 
-> You can use an utility script (start.sh) to run from the root folder any chapter code, or simple move to the corresponding chapter code and run the local scripts situated in the package.json.
+After the installation of all modules you can run whathever package you want via this options:
+- You can use an utility script (start.sh) to run from the root folder any chapter code
+- Simple move to the corresponding chapter code and run the local scripts situated in the package.json.
+- Use `yarn workspace package-name script`
+- Use `lerna run package-name script`
 
-The [start.sh](/start.sh) script accepts two arguments:
+If you want to use the [start.sh](/start.sh) script accepts two arguments:
   - The chapter package, follows the convention of chapter-[number]
   - The script to run:
     - dev
