@@ -7,7 +7,7 @@
   "author": "Sergio Moreno <sergiomorenoalbert@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "postinstall": "patch-package",
+    "postinstall": "patch-package && yarn workspace @amazhop/logic build",
     "start": "./start.sh",
     "build": "lerna run build",
     "test": "lerna run test --parallel",
