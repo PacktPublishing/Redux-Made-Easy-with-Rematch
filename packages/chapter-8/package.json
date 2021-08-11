@@ -11,9 +11,9 @@
     "test:coverage": "jest --coverage",
     "lint": "eslint src --ext .js,.jsx",
     "start:api": "json-server --watch api/db.json --port 8000",
-    "dev": "concurrently 'yarn start:api' 'vite'",
+    "dev": "concurrently \"yarn start:api\" \"vite\"",
     "build": "vite build",
-    "serve": "concurrently 'yarn start:api' 'vite preview'"
+    "serve": "concurrently \"yarn start:api\" \"vite preview\""
   },
   "dependencies": {
     "@rematch/core": "^2.0.1",

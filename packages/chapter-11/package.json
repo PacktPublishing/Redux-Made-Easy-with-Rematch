@@ -7,10 +7,10 @@
     "start:api": "json-server --watch api/db.json --host 0.0.0.0 --port 8000",
     "postinstall": "expo-yarn-workspaces postinstall",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "start": "concurrently 'yarn start:api' 'expo start'",
-    "android": "concurrently 'yarn start:api' 'expo start --android'",
-    "ios": "concurrently 'yarn start:api' 'expo start --ios'",
-    "web": "concurrently 'yarn start:api' 'expo start --web'",
+    "start": "concurrently \"yarn start:api\" \"expo start\"",
+    "android": "concurrently \"yarn start:api\" \"expo start --android\"",
+    "ios": "concurrently \"yarn start:api\" \"expo start --ios\"",
+    "web": "concurrently \"yarn start:api\" \"expo start --web\"",
     "eject": "expo eject"
   },
   "jest": {
