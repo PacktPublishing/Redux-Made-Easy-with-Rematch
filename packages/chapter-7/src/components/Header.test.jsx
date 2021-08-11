@@ -20,7 +20,7 @@ describe("Header", () => {
     renderWithRematchStore(<Header />, store);
     const input = screen.getByRole("textbox");
     userEvent.type(input, "Some search value");
-    expect(input).toHaveValue("eulav hcraes emoS");
+    expect(input).toHaveValue("Some search value");
   });
 
   it("should reset the input text value", () => {
@@ -28,7 +28,7 @@ describe("Header", () => {
     const buttonReset = screen.getByRole("button");
     const input = screen.getByRole("textbox");
     userEvent.type(input, "Some search value");
-    expect(input).toHaveValue("eulav hcraes emoS");
+    expect(input).toHaveValue("Some search value");
     userEvent.click(buttonReset);
     expect(store.getState().shop.query).toEqual(false);
     expect(input).toHaveValue("");
@@ -38,8 +38,8 @@ describe("Header", () => {
     renderWithRematchStore(<Header />, store);
     const input = screen.getByRole("textbox");
     userEvent.type(input, "Some search value");
-    expect(input).toHaveValue("eulav hcraes emoS");
+    expect(input).toHaveValue("Some search value");
     userEvent.keyboard("[Enter]");
-    expect(store.getState().shop.query).toEqual("eulav hcraes emoS");
+    expect(store.getState().shop.query).toEqual("Some search value");
   });
 });
