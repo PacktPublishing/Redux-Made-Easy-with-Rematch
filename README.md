@@ -57,7 +57,7 @@ yarn install
 ```
 
 After the installation of all modules you can run whathever package you want via this options:
-- You can use an utility script (start.sh) to run from the root folder any chapter code
+- You can use an utility script (start.sh) to run from the root folder any chapter code, **ONLY if you use Unix or Mac system.**
 - Simple move to the corresponding chapter code and run the local scripts situated in the package.json.
 - Use `yarn workspace package-name script`
 - Use `lerna run package-name script`
