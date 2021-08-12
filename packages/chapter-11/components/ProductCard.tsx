@@ -2,12 +2,12 @@ import React from "react";
 import { FontAwesome5 } from "@expo/vector-icons";
 import { Text, View, StyleSheet, Image, Pressable } from "react-native";
 import { useDispatch } from "react-redux";
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, NavigationProp } from "@react-navigation/native";
 
 import type { Dispatch } from "@amazhop/logic";
 
 import { number } from "../utils/formatters";
-import type { ProductType } from "../types";
+import { ProductType, RootStackParamList } from "../types";
 
 type ProductCardType = {
   data: ProductType;
@@ -17,7 +17,7 @@ type ProductCardType = {
 const ProductCard = ({ data, quantity }: ProductCardType) => {
   const { id, productName, price, stock, image_url, favorite } = data;
   const dispatch = useDispatch<Dispatch>();
-  const navigation = useNavigation();
+  const navigation = useNavigation<NavigationProp<RootStackParamList>>();
 
   return (
     <View style={styles.container}>
