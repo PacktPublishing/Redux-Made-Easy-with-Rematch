@@ -17,7 +17,11 @@ const BottomTab = createBottomTabNavigator<BottomTabParamList>();
 
 export default function BottomTabNavigator() {
   return (
-    <BottomTab.Navigator initialRouteName="Shop" backBehavior="order">
+    <BottomTab.Navigator
+      screenOptions={{ headerShown: false }}
+      initialRouteName="Shop"
+      backBehavior="order"
+    >
       <BottomTab.Screen
         name="Shop"
         component={ShopScreenNavigator}

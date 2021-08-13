@@ -5,7 +5,7 @@ class ApiClient {
 
   constructor() {
     this.httpInstance = Http.create({
-      baseURL: "http://localhost:8000",
+      baseURL: "http://10.0.2.2:8000",
     });
   }
 
