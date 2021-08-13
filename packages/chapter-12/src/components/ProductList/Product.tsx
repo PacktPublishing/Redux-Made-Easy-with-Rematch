@@ -15,7 +15,7 @@ export type ProductType = {
 type ProductProps = {
   product: ProductType;
 };
-export const Product = memo(({ product }: ProductProps) => {
+export const Product = ({ product }: ProductProps) => {
   const hasStock = useMemo(() => product.stock > 0, [product]);
   return (
     <div
@@ -76,4 +76,6 @@ export const Product = memo(({ product }: ProductProps) => {
       </div>
     </div>
   );
-});
+};
+
+export const MemoizedProduct = memo(Product);

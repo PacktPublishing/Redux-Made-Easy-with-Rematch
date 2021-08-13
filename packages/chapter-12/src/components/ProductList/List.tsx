@@ -4,7 +4,7 @@ import useInfiniteScroll from "react-infinite-scroll-hook";
 import { filterByName } from "@amazhop/logic";
 
 import { dispatch } from "../../store";
-import { Product } from "./Product";
+import { MemoizedProduct } from "./Product";
 import { Spinner } from "../Spinner";
 
 import type { RootState } from "../../store";
@@ -39,7 +39,7 @@ export const List = () => {
         className="grid grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 3xl:grid-cols-5 gap-8 2xl:gap-5 3xl:gap-5"
       >
         {products.map((product) => (
-          <Product key={product.id} product={product} />
+          <MemoizedProduct key={product.id} product={product} />
         ))}
       </div>
       {(isLoading || (hasNextPage && !query)) && (
