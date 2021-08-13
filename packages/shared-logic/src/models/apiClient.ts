@@ -1,11 +1,12 @@
 import Http from "redaxios";
 
+const isReactNative = typeof navigator !== "undefined" && navigator.product === "ReactNative"
 class ApiClient {
   httpInstance: typeof Http;
 
   constructor() {
     this.httpInstance = Http.create({
-      baseURL: "http://10.0.2.2:8000",
+      baseURL: isReactNative ? "http://10.0.2.2:8000" : "http://localhost:8000",
     });
   }
 
