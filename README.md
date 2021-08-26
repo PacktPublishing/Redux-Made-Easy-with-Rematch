@@ -1,6 +1,6 @@
 # Redux made easy with Rematch
 
-<a href="https://www.packtpub.com/product/redux-made-easy-with-rematch/9781801076210?utm_source=github&utm_medium=repository&utm_campaign=9781801076210"><img src="https://images-na.ssl-images-amazon.com/images/I/41FTChr4zyS._SX403_BO1,204,203,200_.jpg" alt="Redux made easy with Rematch" height="256px" align="right"></a>
+<a href="https://www.packtpub.com/product/redux-made-easy-with-rematch/9781801076210?utm_source=github&utm_medium=repository&utm_campaign=9781801076210"><img src="https://static.packt-cdn.com/products/9781801076210/cover/smaller" alt="Redux made easy with Rematch" height="256px" align="right"></a>
 
 This is the code repository for [Redux made easy with Rematch](https://www.packtpub.com/product/redux-made-easy-with-rematch/9781801076210?utm_source=github&utm_medium=repository&utm_campaign=9781801076210), published by Packt.
 
