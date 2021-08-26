@@ -1,31 +1,54 @@
-# Redux made easy with **Rematch**
+# Redux made easy with Rematch
 
-<a href="https://www.amazon.com/Redux-made-easy-Rematch-boilerplate-ebook/dp/B092RFFGNS"><img width="240" align="right" src="https://images-na.ssl-images-amazon.com/images/I/41FTChr4zyS._SX403_BO1,204,203,200_.jpg"></a>
+<a href="https://www.packtpub.com/product/redux-made-easy-with-rematch/9781801076210?utm_source=github&utm_medium=repository&utm_campaign=9781801076210"><img src="https://images-na.ssl-images-amazon.com/images/I/41FTChr4zyS._SX403_BO1,204,203,200_.jpg" alt="Redux made easy with Rematch" height="256px" align="right"></a>
 
-### [🌎 Official website](https://rematchjs.org)
-### [🛍️ Amazon link](https://www.amazon.com/Redux-made-easy-Rematch-boilerplate-ebook/dp/B092RFFGNS)
-### [![Rematch Book Continuous Integration](https://github.com/PacktPublishing/Redux-Made-Easy-with-Rematch/actions/workflows/main_ci.yml/badge.svg)](https://github.com/PacktPublishing/Redux-Made-Easy-with-Rematch/actions/workflows/main_ci.yml)
+This is the code repository for [Redux made easy with Rematch](https://www.packtpub.com/product/redux-made-easy-with-rematch/9781801076210?utm_source=github&utm_medium=repository&utm_campaign=9781801076210), published by Packt.
 
-## What's this book about
+**Reduce Redux boilerplate and apply best practices with Rematch**
 
-Rematch is Redux best practices without the boilerplate. This easy-to-follow guide is for anyone who wants to start using Redux and for existing Redux users looking to improve their codebase.
+## What is this book about?
+Rematch is Redux best practices without the boilerplate. This book is an easy-to-read guide for anyone who wants to get started with Redux, and for those who are already using it and want to improve their codebase.
 
-Complete with hands-on tutorials, projects, and self-assessment questions, this book will quickly take you through basic to advanced Rematch features. You’ll learn how to migrate from Redux, write plugins, set up a fully tested store, and integrate with vanilla JavaScript and frameworks such as React and React Native. The book will show you how to build a real-world application from scratch with the power of Rematch and its plugins, helping you understand how plugins extend Rematch functionalities. Once you discover how plugins work, you'll see how to leverage them to create maintainable projects. Finally, you'll analyze the future of Rematch and understand how the frontend ecosystem is progressing to become more practical and maintainable with alternatives to Redux.
+This book covers the following exciting features: 
+* Understand the principal concepts of Flux and Redux
+* Find out what are the main problems that Rematch solves
+* Become familiar with the Rematch ecosystem
+* Develop an application using Rematch and React together
+* Write unit and integration tests to get 100% test coverage of your programs with Rematch
 
-By the end of this book, you'll have total control of the application state and be able to manage its scalability with simplicity using Rematch.
+If you feel this book is for you, get your [copy](https://www.amazon.com/dp/1801076219) today!
 
-## What you will learn
-- Understand the principal concepts of Flux and Redux
-- Find out what are the main problems that Rematch solves
-- Become familiar with the Rematch ecosystem
-- Develop an application using Rematch and React together
-- Write unit and integration tests to get 100% test coverage of your programs with Rematch
-- Create a React Native App with Rematch and Expo
-- Persist data with redux-persist and Rematch
-- Build a Rematch plugin from scratch
+<a href="https://www.packtpub.com/?utm_source=github&utm_medium=banner&utm_campaign=GitHubBanner"><img src="https://raw.githubusercontent.com/PacktPublishing/GitHub/master/GitHub.png" 
+alt="https://www.packtpub.com/" border="5" /></a>
 
-## Who's this book for
+
+## Instructions and Navigations
+All of the code is organized into folders. For example, Chapter03.
+
+The code will look like the following:
+```
+const store = window.Redux.createStore(
+reducer,
+window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_
+DEVTOOLS_EXTENSION__()
+);
+```
+
+**Following is what you need for this book:**
+
 This book is for React and Redux users looking for better alternatives for Redux. Familiarity with JavaScript, React, and Redux will help you make the most of this book.
+
+With the following software and hardware list you can run all code files present in the book (Chapter 1-13).
+
+### Software and Hardware List
+
+| Chapter  | Software required                   | OS required                        |
+| -------- | ------------------------------------| -----------------------------------|
+| 1        | Node.js LTS                         | Windows, Mac OS X, and Linux       |
+| 2        | Yarn 1.22                           | Windows, Mac OS X, and Linux       |
+| 3        | Google Chrome                       | Windows, Mac OS X, and Linux       |
+| 4        | Visual Studio Code                  | Windows, Mac OS X, and Linux       |
+
 
 ## Chapter's examples
 
@@ -79,3 +102,22 @@ For ex:
 ```
 
 There a lot of scripts and every chapter has it's own so feel free to take a look first on the chapter code which commands are available.
+
+<hr>
+
+We also provide a PDF file that has color images of the screenshots/diagrams used in this book. [Click here to download it](https://static.packt-cdn.com/downloads/9781801076210_ColorImages.pdf).
+
+
+### Related products <Other books you may enjoy>
+* React 17 Design Patterns and Best Practices - Third Edition [[Packt]](https://www.packtpub.com/product/react-17-design-patterns-and-best-practices-third-edition/9781800560444?utm_source=github&utm_medium=repository&utm_campaign=9781800560444) [[Amazon]](https://www.amazon.com/dp/1800560443)
+
+* Full-Stack React, TypeScript, and Node [[Packt]](https://www.packtpub.com/product/full-stack-react-typescript-and-node/9781839219931?utm_source=github&utm_medium=repository&utm_campaign=9781839219931) [[Amazon]](https://www.amazon.com/dp/1839219939)
+
+## Get to Know the Author
+**Sergio Moreno**
+is a frontend developer with more than 4 years of experience heavily focused on the analysis, design, development, and building of large-scale applications. Formerly working at Allfunds, the world's largest fund distribution network, he led the frontend team to build a full new suite of products for the new digital section of Allfunds. He entered the open source world in 2019 and has contributed to big companies including Google, Facebook, Airbnb, Pinterest, and many more. In 2020, he focused on contributions to Rematch, where he released the v2 version with a full rewrite of the code base, full compatibility with TypeScript, and many other improvements, such as reducing the bundle size in some cases by 80%. He is also now the lead mantainer of the LinguiJS library, an amazing internationalization library. He helped to release the v3 version and took on the role of leading the coming years of development of LinguiJS.
+
+In 2021, he joined Flowable as a product engineer, working on their compact and highly efficient workflow and business process management platform for developers, system admins, and business users.
+
+
+
