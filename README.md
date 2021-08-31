@@ -26,11 +26,11 @@ alt="https://www.packtpub.com/" border="5" /></a>
 All of the code is organized into folders. For example, Chapter03.
 
 The code will look like the following:
-```
+```js
 const store = window.Redux.createStore(
-reducer,
-window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_
-DEVTOOLS_EXTENSION__()
+ reducer,
+ window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_
+ DEVTOOLS_EXTENSION__()
 );
 ```
 
@@ -42,12 +42,12 @@ With the following software and hardware list you can run all code files present
 
 ### Software and Hardware List
 
-| Chapter  | Software required                   | OS required                        |
-| -------- | ------------------------------------| -----------------------------------|
-| 1        | Node.js LTS                         | Windows, Mac OS X, and Linux       |
-| 2        | Yarn 1.22                           | Windows, Mac OS X, and Linux       |
-| 3        | Google Chrome                       | Windows, Mac OS X, and Linux       |
-| 4        | Visual Studio Code                  | Windows, Mac OS X, and Linux       |
+|  Software used.                      | OS required                        |
+|  ------------------------------------| -----------------------------------|
+|  Node.js LTS (14)                    | Windows, Mac OS X, and Linux       |
+|  Yarn 1.22                           | Windows, Mac OS X, and Linux       |
+|  Google Chrome                       | Windows, Mac OS X, and Linux       |
+|  Visual Studio Code                  | Windows, Mac OS X, and Linux       |
 
 
 ## Chapter's examples
